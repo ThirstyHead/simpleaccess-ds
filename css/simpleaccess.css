@@ -1,0 +1,22 @@
+/* ==========================================================================
+   SIMPLEACCESS DESIGN SYSTEM (SMACSS Master Bundle)
+   WCAG 2.2 AA Multi-Sensory Specification (Sight, Sound, Touch)
+   ========================================================================== */
+
+/* 00. Design Tokens (W3C DTCG 2025.10) */
+@import url('tokens.css');
+
+/* 01. Base Layer (Resets, typography, universal a11y defaults) */
+@import url('01-base/base.css');
+
+/* 02. Layout Layer (Structural landmarks: .l-header, .l-nav, .l-main, etc.) */
+@import url('02-layout/layout.css');
+
+/* 03. Module Layer (Reusable components: .m-card, .m-btn, .m-hero, etc.) */
+@import url('03-module/module.css');
+
+/* 04. State Layer (Dynamic states: .is-current, .is-active, etc.) */
+@import url('04-state/state.css');
+
+/* 05. Theme Layer (Dark mode, forced-colors, reduced motion) */
+@import url('05-theme/theme.css');

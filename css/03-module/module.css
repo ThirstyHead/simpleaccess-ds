@@ -1,0 +1,240 @@
+/* ==========================================================================
+   SMACSS LAYER 03: MODULE
+   Self-contained, reusable components with multi-sensory ergonomics.
+   Prefix: .m-*
+   ========================================================================== */
+
+/* Skip Link: WCAG 2.2 SC 2.4.1 (Bypass Blocks)
+   Hidden off-screen until focused via keyboard navigation. */
+.m-skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-interactive-accent, #ffd700);
+  padding: var(--sys-space-sm, 0.5rem) var(--sys-space-md, 1rem);
+  z-index: 9999;
+  font-weight: var(--sys-font-weight-bold, 700);
+  border: 2px solid var(--sys-color-interactive-accent, #ffd700);
+  border-radius: var(--sys-border-radius-sm, 4px);
+  text-decoration: none;
+}
+
+.m-skip-link:focus {
+  top: 1rem;
+}
+
+/* Global Navigation List & Links
+   WCAG 2.2 SC 2.5.8 (Target Size): min-height 44px for touch ergonomics. */
+.m-nav-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.m-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  padding: var(--sys-space-sm, 0.5rem) var(--sys-space-md, 1rem);
+  color: var(--sys-color-interactive-primary, #002d62);
+  text-decoration: none;
+  font-weight: var(--sys-font-weight-bold, 700);
+  border-bottom: 3px solid transparent;
+  transition: all var(--sys-motion-fast, 0.2s ease);
+}
+
+.m-nav-link:hover {
+  background-color: var(--sys-color-bg-canvas, #f4f4f4);
+  color: var(--sys-color-interactive-hover, #004494);
+}
+
+/* Hero Section Module */
+.m-hero {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-lg, 12px);
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-xl, 2rem);
+  text-align: center;
+  box-shadow: var(--sys-elevation-card, 0 4px 12px rgba(0,0,0,0.05));
+  margin-bottom: var(--sys-space-xxl, 3rem);
+  border-top: 4px solid var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-hero__title {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-hero__tagline {
+  font-size: var(--sys-font-scale-lg, 1.4rem);
+  color: var(--sys-color-text-muted, #444444);
+  max-width: 800px;
+  margin: var(--sys-space-md, 1rem) auto var(--sys-space-xl, 2rem);
+}
+
+.m-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--sys-space-md, 1rem);
+  flex-wrap: wrap;
+}
+
+/* Button Component
+   Delivers tangible tactile feedback (active depression) + 44px touch ergonomics. */
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--sys-border-radius-md, 8px);
+  font-weight: var(--sys-font-weight-bold, 700);
+  font-size: var(--sys-font-scale-base, 1rem);
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease, background-color var(--sys-motion-fast, 0.2s ease);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.m-btn:active {
+  transform: scale(0.97);
+}
+
+.m-btn--primary {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+}
+
+.m-btn--primary:hover {
+  background-color: var(--sys-color-interactive-hover, #004494);
+  color: var(--sys-color-text-inverse, #ffffff);
+}
+
+.m-btn--accent {
+  background-color: var(--sys-color-interactive-accent, #ffd700);
+  color: var(--sys-color-interactive-primary, #002d62);
+  border-color: var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-btn--accent:hover {
+  background-color: #ffe44d;
+}
+
+/* Card Component */
+.m-card {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  box-shadow: var(--sys-elevation-card, 0 4px 12px rgba(0,0,0,0.05));
+  border-top: var(--sys-border-card-lead, 8px) solid var(--sys-color-interactive-primary, #002d62);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--sys-motion-fast, 0.2s ease), box-shadow var(--sys-motion-fast, 0.2s ease);
+}
+
+.m-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.m-card__title {
+  margin-top: 0;
+  color: var(--sys-color-interactive-primary, #002d62);
+  font-size: var(--sys-font-scale-xl, 1.75rem);
+}
+
+.m-card__body {
+  flex-grow: 1;
+  color: var(--sys-color-text-main, #1a1a1a);
+}
+
+.m-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  font-weight: var(--sys-font-weight-bold, 700);
+  color: var(--sys-color-interactive-primary, #002d62);
+  margin-top: var(--sys-space-md, 1rem);
+}
+
+/* Badge Component */
+.m-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: var(--sys-font-scale-xs, 0.75rem);
+  font-weight: var(--sys-font-weight-bold, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--sys-border-radius-sm, 4px);
+  background-color: var(--sys-color-interactive-accent, #ffd700);
+  color: var(--sys-color-interactive-primary, #002d62);
+}
+
+/* Manifesto / Mission Quote */
+.m-manifesto {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  padding: var(--sys-space-xl, 2rem);
+  border-radius: var(--sys-border-radius-md, 8px);
+  border-left: 8px solid var(--sys-color-interactive-accent, #ffd700);
+  font-size: var(--sys-font-scale-lg, 1.4rem);
+  font-style: italic;
+  margin: var(--sys-space-xxl, 3rem) 0;
+}
+
+/* Test Suite & Data Tables */
+.m-test-suite {
+  background-color: var(--sys-color-bg-container, #e8f0fe);
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  margin-top: var(--sys-space-xxl, 3rem);
+  border: 1px solid #c2d7fa;
+}
+
+.m-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sys-space-md, 1rem) 0;
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-sm, 4px);
+  overflow: hidden;
+}
+
+.m-table th, .m-table td {
+  padding: var(--sys-space-md, 1rem);
+  text-align: left;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.m-table th {
+  background-color: #d0def7;
+  color: var(--sys-color-interactive-primary, #002d62);
+  font-weight: var(--sys-font-weight-bold, 700);
+}
+
+.m-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Reference Demo Box */
+.m-demo {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  margin: var(--sys-space-lg, 1.5rem) 0;
+}
+
+/* Spec Link */
+.m-ref-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: var(--sys-font-weight-semibold, 600);
+}

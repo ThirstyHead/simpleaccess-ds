@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SMACSS LAYER 02: LAYOUT
+   Major structural wireframes, grids, headers, footers, and page sections.
+   Prefix: .l-*
+   ========================================================================== */
+
+/* Global Brand Header Landmark (WCAG 2.2 SC 1.3.1) */
+.l-header {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-md, 1rem);
+  text-align: center;
+  border-bottom: var(--sys-border-header-accent, 6px) solid var(--sys-color-interactive-accent, #ffd700);
+}
+
+/* Global Navigation Landmark (WCAG 2.2 SC 3.2.3 Consistent Navigation) */
+.l-nav {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  box-shadow: var(--sys-elevation-nav, 0 2px 5px rgba(0,0,0,0.1));
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Primary Document Landmark (WCAG 2.2 SC 1.3.1 Info & Relationships) */
+.l-main {
+  max-width: var(--sys-layout-main-max, 1100px);
+  margin: 0 auto;
+  padding: var(--sys-space-xl, 2rem) var(--sys-space-md, 1rem);
+}
+
+/* Content Width Container */
+.l-container {
+  max-width: var(--sys-layout-container-max, 900px);
+  margin: 0 auto;
+  padding: var(--sys-space-lg, 1.5rem) var(--sys-space-md, 1rem);
+}
+
+/* Responsive Component Grid */
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--sys-layout-grid-min-card, 300px), 1fr));
+  gap: var(--sys-space-xl, 2rem);
+  margin: var(--sys-space-xl, 2rem) 0;
+}
+
+/* Global Footer Landmark */
+.l-footer {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  text-align: center;
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-md, 1rem);
+  margin-top: var(--sys-space-huge, 4rem);
+  border-top: var(--sys-border-header-accent, 6px) solid var(--sys-color-interactive-accent, #ffd700);
+}
+
+.l-footer a {
+  color: var(--sys-color-interactive-accent, #ffd700);
+}

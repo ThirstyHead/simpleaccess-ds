@@ -1,0 +1,133 @@
+/* ==========================================================================
+   SMACSS LAYER 05: THEME
+   Visual adaptations for dark mode, high contrast, and reduced motion.
+   View-Source Educational Reference: SimpleAccess.io
+   ========================================================================== */
+
+/* 1. Dark Mode Theme (User Preferred) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--sys-color-bg-canvas, #0a192f);
+    color: var(--sys-color-text-main, #f0f4f8);
+  }
+
+  .l-nav {
+    background-color: #132238;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+
+  .m-nav-link {
+    color: #f0f4f8;
+  }
+
+  .m-nav-link:hover,
+  .m-nav-link[aria-current="page"] {
+    background-color: #1b2e4b;
+    color: var(--sys-color-interactive-accent, #ffd700);
+    border-bottom-color: var(--sys-color-interactive-accent, #ffd700);
+  }
+
+  .m-hero,
+  .m-card,
+  .m-demo {
+    background-color: #132238;
+    color: #f0f4f8;
+    border-color: #1e3a5f;
+  }
+
+  .m-hero__title,
+  .m-card__title {
+    color: var(--sys-color-interactive-accent, #ffd700);
+  }
+
+  .m-hero__tagline,
+  .m-card__body {
+    color: #cbd5e1;
+  }
+
+  .m-test-suite {
+    background-color: #1b2e4b;
+    border-color: #2b4772;
+  }
+
+  .m-table {
+    background-color: #132238;
+    color: #f0f4f8;
+  }
+
+  .m-table th {
+    background-color: #1e3a5f;
+    color: #ffd700;
+  }
+
+  .m-table th, .m-table td {
+    border-bottom-color: #2b4772;
+  }
+
+  code {
+    background-color: #1b2e4b;
+    color: #ffd700;
+  }
+
+  pre {
+    background-color: #132238;
+    border-color: #2b4772;
+    border-left-color: var(--sys-color-interactive-accent, #ffd700);
+  }
+}
+
+/* 2. Windows High Contrast Mode (WCAG 2.2 SC 1.4.11 Non-text Contrast)
+   Ensures semantic borders and focus outlines remain crisp in forced colors. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 3px;
+  }
+
+  .m-btn {
+    border: 2px solid ButtonText !important;
+  }
+
+  .m-card,
+  .m-hero,
+  .m-manifesto {
+    border: 2px solid CanvasText !important;
+  }
+
+  .m-nav-link[aria-current="page"] {
+    border-bottom: 3px solid Highlight !important;
+  }
+}
+
+/* 3. Reduced Motion (WCAG 2.2 SC 2.3.3 Animation from Interactions) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 4. Print Styles */
+@media print {
+  .l-nav,
+  .m-skip-link,
+  .m-hero__actions {
+    display: none !important;
+  }
+
+  body {
+    background: transparent;
+    color: #000000;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000000;
+  }
+}
