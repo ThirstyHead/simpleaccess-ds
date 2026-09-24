@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleAccess Design System Showcase</title>
+    
+    <!-- Design System Master Styles -->
+    <link rel="stylesheet" href="css/simpleaccess.css">
+    
+    <!-- Design System Components and Sensory Engine -->
+    <script type="module" src="components/index.js"></script>
+</head>
+<body>
+
+    <!-- WCAG 2.2 SC 2.4.1 Bypass Blocks -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header Component -->
+    <ds-header 
+        title="SimpleAccess Design System" 
+        tagline="WCAG 2.2 AA Multi-Sensory Architecture (Sight, Sound, Touch)">
+    </ds-header>
+
+    <!-- Global Navigation Component -->
+    <ds-nav></ds-nav>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" class="l-main">
+
+        <!-- Hero Organism -->
+        <section class="m-hero" aria-labelledby="showcase-hero-heading">
+            <h1 id="showcase-hero-heading" class="m-hero__title">Living Component & Token Showcase</h1>
+            <p class="m-hero__tagline">
+                Experience the clean web standards, SMACSS architecture, and multi-sensory delights powering SimpleAccess.io.
+            </p>
+            <div class="m-hero__actions">
+                <a href="#sensory-demo" class="m-btn m-btn--accent">Try Multi-Sensory Demo</a>
+                <a href="DESIGN_SYSTEM.md" class="m-btn m-btn--primary">Read Governance Spec</a>
+            </div>
+        </section>
+
+        <!-- Manifesto Molecule -->
+        <blockquote class="m-manifesto">
+            "We build for humans first and autonomous AI agents second. By grounding our architecture in W3C web standards, scalable CSS, and multi-sensory feedback, we guarantee resilience across every device."
+        </blockquote>
+
+        <!-- Sensory Interaction Test Zone -->
+        <section id="sensory-demo" class="m-test-suite" aria-labelledby="sensory-heading">
+            <h2 id="sensory-heading">Interactive Multi-Sensory Delight</h2>
+            <p>
+                Test our acoustic earcons synthesized via the Web Audio API and tactile pulses triggered via the Web Haptics API:
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button type="button" class="m-btn m-btn--primary" id="btn-earcon-standard">
+                    <span>&#9835; Standard Earcon (440Hz A4)</span>
+                </button>
+                <button type="button" class="m-btn m-btn--accent" id="btn-earcon-high">
+                    <span>&#9835; High Accent (587Hz D5)</span>
+                </button>
+                <button type="button" class="m-btn m-btn--primary" id="btn-haptic-tap">
+                    <span>&#128243; Tactile Haptic Tap (12ms)</span>
+                </button>
+                <button type="button" class="m-btn m-btn--accent" id="btn-haptic-dual">
+                    <span>&#128243; Tactile Dual Pulse</span>
+                </button>
+            </div>
+            <p id="sensory-feedback-status" aria-live="polite" style="margin-top: 0.75rem; font-weight: bold; color: var(--sys-color-interactive-primary);"></p>
+        </section>
+
+        <!-- Component Gallery: Responsive SMACSS Grid -->
+        <section aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading">SMACSS Component Catalog</h2>
+            <div class="l-grid">
+
+                <!-- Card Molecule -->
+                <article class="m-card">
+                    <span class="m-badge">Atom / Molecule</span>
+                    <h3 class="m-card__title">Buttons & Badges</h3>
+                    <div class="m-card__body">
+                        <p>Buttons enforce 44px minimum touch targets and spring depression active states.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <span class="m-badge">WCAG 2.2</span>
+                            <span class="m-badge">Level AAA</span>
+                        </div>
+                    </div>
+                    <a href="templates/element.template.html" class="m-card__link">Inspect Element Template &rarr;</a>
+                </article>
+
+                <article class="m-card">
+                    <span class="m-badge">Template</span>
+                    <h3 class="m-card__title">Atomic Blueprints</h3>
+                    <div class="m-card__body">
+                        <p>Four standard blueprints for Home, HTML Element, Knowledge Guide, and Sensory Lab.</p>
+                    </div>
+                    <a href="templates/home.template.html" class="m-card__link">Inspect Home Template &rarr;</a>
+                </article>
+
+                <article class="m-card">
+                    <span class="m-badge">Agentic AI</span>
+                    <h3 class="m-card__title">llms.txt Context</h3>
+                    <div class="m-card__body">
+                        <p>Machine-readable index allowing Gemini and Gemma models to refactor pages with zero drift.</p>
+                    </div>
+                    <a href="llms.txt" class="m-card__link">Inspect llms.txt &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Design Verification Table -->
+        <section class="m-test-suite" aria-labelledby="tokens-heading">
+            <h2 id="tokens-heading">DTCG 2025.10 Design Tokens</h2>
+            <p>Canonical design tokens compiled directly into native CSS custom properties:</p>
+            <table class="m-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Token Name</th>
+                        <th scope="col">Compiled CSS Property</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Contrast / Standard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Brand Primary</th>
+                        <td><code>--sys-color-interactive-primary</code></td>
+                        <td><code>#002d62</code></td>
+                        <td><span class="m-badge">14.3:1 AAA</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Accent Gold</th>
+                        <td><code>--sys-color-interactive-accent</code></td>
+                        <td><code>#ffd700</code></td>
+                        <td><span class="m-badge">9.5:1 AAA</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Focus Indicator</th>
+                        <td><code>--sys-color-interactive-focus</code></td>
+                        <td><code>#d4af37</code></td>
+                        <td><span class="m-badge">3px Metallic</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Touch Target</th>
+                        <td><code>--sys-touch-min-target</code></td>
+                        <td><code>44px</code></td>
+                        <td><span class="m-badge">SC 2.5.8</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Global Footer Component -->
+    <ds-footer></ds-footer>
+
+    <!-- Interactive Script for Showcase Sensory Demonstration -->
+    <script type="module">
+        import { playEarcon, triggerHaptic } from './components/ds-sensory.js';
+
+        const statusEl = document.getElementById('sensory-feedback-status');
+
+        document.getElementById('btn-earcon-standard')?.addEventListener('click', () => {
+            playEarcon(440, 0.08);
+            if (statusEl) statusEl.textContent = 'Played Standard 440Hz Sine Earcon';
+        });
+
+        document.getElementById('btn-earcon-high')?.addEventListener('click', () => {
+            playEarcon(587.33, 0.1);
+            if (statusEl) statusEl.textContent = 'Played High Accent 587Hz Earcon';
+        });
+
+        document.getElementById('btn-haptic-tap')?.addEventListener('click', () => {
+            triggerHaptic(12);
+            if (statusEl) statusEl.textContent = 'Triggered 12ms Haptic Tap';
+        });
+
+        document.getElementById('btn-haptic-dual')?.addEventListener('click', () => {
+            triggerHaptic([10, 40, 15]);
+            if (statusEl) statusEl.textContent = 'Triggered Dual Pulse Haptic Pattern';
+        });
+    </script>
+</body>
+</html>

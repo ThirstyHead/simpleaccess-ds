@@ -5,24 +5,24 @@ Location: `/Users/scott/code/local/simpleaccess-ds`
 Last Updated: 2026-09-24
 
 ## Current State
-- Current Task Index: 6 (`Task 6: Interactive Showcase & Sensory Lab Documentation`)
-- Current Branch: `docs/llms-txt-and-governance` (Task 5 completed, ready to merge / switch to `feat/docs-showcase`)
-- Last Completed Step: Task 5 (Agentic AI Documentation & Governance)
-- Base HEAD: `c618d44`
+- Current Task Index: 7 (`Task 7: Build & Distribution Pipeline`)
+- Current Branch: `feat/docs-showcase` (Task 6 completed, ready to merge / switch to `feat/build-and-dist`)
+- Last Completed Step: Task 6 (Interactive Showcase & Sensory Lab Documentation)
+- Base HEAD: `eda44a8`
 
 ## State-Probe Block
 Run these commands to verify state before taking any action:
 ```bash
 git -C /Users/scott/code/local/simpleaccess-ds status
-# Expected: Clean or uncommitted Task 5 changes on docs/llms-txt-and-governance
+# Expected: Clean or uncommitted Task 6 changes on feat/docs-showcase
 
 npm --prefix /Users/scott/code/local/simpleaccess-ds test
-# Expected: 20 passing tests
+# Expected: 23 passing tests
 ```
 
 **STOP-AND-ASK RULE**: If the state probe contradicts this file, stop immediately and ask the user.
 
 ## Next Exact Command
 ```bash
-cd /Users/scott/code/local/simpleaccess-ds && git checkout -b feat/docs-showcase
+cd /Users/scott/code/local/simpleaccess-ds && git checkout -b feat/build-and-dist
 ```
