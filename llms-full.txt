@@ -1,0 +1,177 @@
+# SimpleAccess Design System: Full Agentic Specification
+
+> Comprehensive, deterministic technical manual for autonomous AI coding agents (Gemini-3.8-flash, Gemma-4-31B, Gemma-4-26B) refactoring simpleaccess.io.
+
+## Table of Contents
+1. Core Principles & Sensory Specification
+2. W3C DTCG Token Dictionary
+3. Complete SMACSS Class Catalog
+4. Web Components API & Behavior
+5. Page Refactoring Recipes
+6. WCAG 2.2 AA Verification Checklist
+
+---
+
+## 1. Core Principles & Sensory Specification
+
+### 1.1 Web Standards First
+- Prefer native HTML elements over ARIA where native elements exist (e.g. `<button>` instead of `<div role="button">`).
+- Use semantic landmarks: `<header>`, `<nav>`, `<main>`, `<article>`, `<aside>`, `<footer>`.
+- Every page must have one and only one `<main>` landmark with `id="main-content"`.
+- Every page must have an immediate child skip-link: `<a href="#main-content" class="m-skip-link">Skip to main content</a>`.
+
+### 1.2 Multi-Sensory Specification
+- **Sight (Visual)**:
+  - Contrast: 
+    - Text: Minimum 4.5:1 (SimpleAccess uses 14.3:1 to 17.6:1).
+    - Non-text: Minimum 3.0:1 for focus rings and buttons.
+  - Focus Ring: 3px solid `#d4af37` (Metallic Gold) with 3px outline-offset.
+  - Dark Mode: Surface `#132238`, Canvas `#0a192f`, Text `#f0f4f8`.
+  - Windows High Contrast: Explicit `Highlight` and `CanvasText` overrides in `forced-colors: active`.
+  - Reduced Motion: Disable smooth scrolling and transitions if `prefers-reduced-motion: reduce`.
+- **Sound (Auditory)**:
+  - Screen Reader: Descriptive labels (`aria-label="Global Sections"`), clear link text.
+  - Earcons: Optional Web Audio tone pulse (440Hz sine wave, 60ms) triggered on interactive controls.
+- **Touch (Tactile)**:
+  - Minimum Target Size: 44x44px (`--sys-touch-min-target: 44px`).
+  - Tactile Feedback: Physical depression active state (`transform: scale(0.97)`) + optional `navigator.vibrate(12)` pulse.
+
+---
+
+## 2. W3C DTCG Token Dictionary
+
+### Colors
+- `color.palette.navy`: `#002d62` -> `--color-primary`
+- `color.palette.navy_hover`: `#004494` -> `--sys-color-interactive-hover`
+- `color.palette.navy_dark`: `#0a192f`
+- `color.palette.gold`: `#ffd700` -> `--color-accent`, `--sys-color-interactive-accent`
+- `color.palette.gold_metallic`: `#d4af37` -> `--color-focus`, `--sys-color-interactive-focus`
+- `color.palette.charcoal`: `#1a1a1a` -> `--color-text`, `--sys-color-text-main`
+- `color.palette.muted_charcoal`: `#444444` -> `--sys-color-text-muted`
+- `color.palette.canvas`: `#f4f4f4` -> `--color-bg`, `--sys-color-bg-canvas`
+- `color.palette.white`: `#ffffff` -> `--color-white`, `--sys-color-bg-surface`
+- `color.palette.blue_soft`: `#e8f0fe` -> `--sys-color-bg-container`
+- `color.palette.blue_header`: `#d0def7`
+
+### Spacing Scale
+- `spacing.xs`: `0.25rem` (4px)
+- `spacing.sm`: `0.5rem` (8px)
+- `spacing.md`: `1rem` (16px)
+- `spacing.lg`: `1.5rem` (24px)
+- `spacing.xl`: `2rem` (32px)
+- `spacing.xxl`: `3rem` (48px)
+- `spacing.huge`: `4rem` (64px)
+- `spacing.hero`: `5rem` (80px)
+
+---
+
+## 3. Complete SMACSS Class Catalog
+
+### Layout Classes (.l-*)
+- `.l-header`: Full-width navy header banner with gold bottom border.
+- `.l-nav`: Sticky top navigation bar.
+- `.l-main`: Main content wrapper (`max-width: 1100px; margin: 0 auto;`).
+- `.l-container`: Content container (`max-width: 900px; margin: 0 auto;`).
+- `.l-grid`: Responsive card grid (`repeat(auto-fit, minmax(300px, 1fr))`).
+- `.l-footer`: Full-width navy footer banner with gold top border.
+
+### Module Classes (.m-*)
+- `.m-skip-link`: Keyboard skip-to-content link.
+- `.m-nav-list`: Flex container for navigation list items.
+- `.m-nav-link`: Navigation anchor with 44px min-target.
+- `.m-hero`: Hero banner module.
+- `.m-hero__title`: Large hero heading.
+- `.m-hero__tagline`: Hero explanatory subtitle.
+- `.m-hero__actions`: Container for call-to-action buttons.
+- `.m-btn`: Button with 44px target, active depression, and focus ring.
+  - Modifier: `.m-btn--primary` (Navy background, white text).
+  - Modifier: `.m-btn--accent` (Gold background, navy text).
+- `.m-card`: Card with top border accent.
+  - Child: `.m-card__title`
+  - Child: `.m-card__body`
+  - Child: `.m-card__link`
+- `.m-badge`: Compact uppercase tag/badge.
+- `.m-manifesto`: Highlighted quote block with left gold border.
+- `.m-test-suite`: Verification container box.
+- `.m-table`: Accessible table with styled headers and borders.
+- `.m-demo`: Interactive code demo preview container.
+- `.m-code-block`: Formatted preformatted code snippet box.
+- `.m-ref-link`: Specification link with external tab indicator.
+
+### State Classes (.is-*, .has-*, and ARIA)
+- `.is-current` or `[aria-current="page"]`: Active navigation item.
+- `.is-active`: Active pressed state.
+- `.is-disabled` or `[aria-disabled="true"]`: Disabled control.
+- `.is-sr-only`: Visually hidden but available to screen readers.
+
+---
+
+## 4. Web Components API
+
+### 4.1 `<ds-header>`
+Custom element rendering `<header class="l-header">`.
+- Attributes:
+  - `title`: Primary title string (default: "SimpleAccess.io").
+  - `tagline`: Subtitle string (default: "Delighting the Senses: Sight, Sound, and Touch").
+  - `subpage`: When `"true"`, renders title as a back-link to home, ensuring the page's `<h1>` is reserved for `<main>`.
+
+### 4.2 `<ds-nav>`
+Custom element rendering `<nav class="l-nav" aria-label="Global Sections">`.
+- Automatically checks `window.location.pathname` and attaches `aria-current="page"` and `.is-current` to the active link.
+
+### 4.3 `<ds-footer>`
+Custom element rendering `<footer class="l-footer">`.
+
+### 4.4 Multi-Sensory JS Module
+Imported from `/assets/ds/simpleaccess.js`:
+- `playEarcon(freq, duration)`: Synthesizes Web Audio sine tone.
+- `triggerHaptic(pattern)`: Triggers tactile vibration.
+- `attachSensoryFeedback(element, options)`: Binds click sensory response.
+
+---
+
+## 5. Page Refactoring Recipes
+
+### Standard Page Shell:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Page Title] | SimpleAccess.io</title>
+    
+    <link rel="stylesheet" href="/assets/ds/simpleaccess.css">
+    <script type="module" src="/assets/ds/simpleaccess.js" defer></script>
+</head>
+<body>
+
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <ds-header subpage="true"></ds-header>
+    <ds-nav></ds-nav>
+
+    <main id="main-content" class="l-main">
+        <!-- Content -->
+    </main>
+
+    <ds-footer></ds-footer>
+
+</body>
+</html>
+```
+
+---
+
+## 6. WCAG 2.2 AA Verification Checklist
+
+1. [ ] DOCTYPE and `<html lang="en">` present.
+2. [ ] `<title>` is descriptive and unique.
+3. [ ] Skip link is first focusable element on page.
+4. [ ] Heading hierarchy starts at `<h1>` inside `<main>` for subpages.
+5. [ ] No headings skip levels (e.g. `<h1>` followed by `<h3>`).
+6. [ ] Color contrast passes AA (minimum 4.5:1 for text, 3:1 for non-text).
+7. [ ] Interactive controls are keyboard operable via Tab and Enter/Space.
+8. [ ] All images have descriptive `alt` attributes or `alt=""` if decorative.
+9. [ ] All tables have `scope="col"` or `scope="row"` on header cells.
+10. [ ] Touch targets are at least 44x44px.

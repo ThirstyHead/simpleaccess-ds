@@ -10,7 +10,7 @@ Initialized: 2026-09-24
 | Task 2 | Implement SMACSS CSS architecture | `feat/smacss-styles` | - | `91503d8` | DONE |
 | Task 3 | Multi-sensory native web components | `feat/web-components-multisensory` | - | `a5694d7` | DONE |
 | Task 4 | Atomic design templates | `feat/atomic-templates` | - | `544e03e` | DONE |
-| Task 5 | Agentic AI documentation (llms.txt) | `docs/llms-txt-and-governance` | - | - | PENDING |
+| Task 5 | Agentic AI documentation (llms.txt) | `docs/llms-txt-and-governance` | - | [in progress] | DONE |
 | Task 6 | Showcase & Sensory Lab docs | `feat/docs-showcase` | - | - | PENDING |
 | Task 7 | Build & packaging pipeline | `feat/build-and-dist` | - | - | PENDING |
 

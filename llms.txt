@@ -1,0 +1,60 @@
+# SimpleAccess Design System
+
+> SimpleAccess Design System (simpleaccess-ds) is a lean, WCAG 2.2 AA multi-sensory design system built on Scalable and Modular Architecture for CSS (SMACSS), Atomic Design, and W3C DTCG 2025.10 tokens. It powers https://simpleaccess.io/ and is engineered for dual consumption by human developers and autonomous AI coding agents.
+
+## Core Philosophy
+- Web as Dynamic Document First: Clean semantic HTML5, zero unnecessary div bloat.
+- Universal Accessibility (WCAG 2.2 AA): 14.3:1+ contrast, visible focus, 44px touch targets.
+- Multi-Sensory Delight: Sight (contrast, dark mode, high contrast), Sound (screen reader clarity + Web Audio earcons), Touch (44px target sizes + tactile haptics).
+- Educational Source Code: Markup includes insightful comments explaining the *why* of accessibility choices for "View Source" learning.
+
+## Core Architecture
+- Design Tokens: W3C DTCG 2025.10 standard in `tokens.json`.
+- SMACSS Layering:
+  - 01-base: CSS reset, typography, native HTML element styling, focus-visible indicators.
+  - 02-layout: Major structural landmarks (`.l-header`, `.l-nav`, `.l-main`, `.l-container`, `.l-grid`, `.l-footer`).
+  - 03-module: Self-contained components (`.m-skip-link`, `.m-nav-list`, `.m-nav-link`, `.m-hero`, `.m-card`, `.m-btn`, `.m-test-suite`, `.m-table`, `.m-demo`, `.m-badge`).
+  - 04-state: Interactive states (`.is-current`, `[aria-current="page"]`, `.is-active`, `.is-disabled`).
+  - 05-theme: Dark mode, Windows High Contrast Mode (`forced-colors`), and reduced motion.
+- Web Components: Native Custom Elements (`<ds-header>`, `<ds-nav>`, `<ds-footer>`) implemented in Light DOM to preserve semantic landmark hierarchy for screen readers.
+
+## Multi-Sensory Standards
+- Sight:
+  - Background canvas: `#f4f4f4` (Light) / `#0a192f` (Dark)
+  - Surface: `#ffffff` (Light) / `#132238` (Dark)
+  - Text: `#1a1a1a` (Light, 15.5:1 on canvas) / `#f0f4f8` (Dark)
+  - Brand Navy: `#002d62` (14.3:1 on white)
+  - Accent Gold: `#ffd700` (9.5:1 on navy)
+  - Focus Ring: `#d4af37` (3px solid with 3px offset)
+- Sound:
+  - Accessible Screen Reader Landmarks: `<header>`, `<nav>`, `<main>`, `<footer>`
+  - Audio Earcons: `playEarcon(freq, duration)` via Web Audio API (default 440Hz sine pulse with exponential decay). Muted automatically when `prefers-reduced-motion: reduce` is active.
+- Touch:
+  - Target Size: 44x44px minimum for all interactive controls (exceeds WCAG 2.2 SC 2.5.8 24px requirement).
+  - Tactile Haptics: `triggerHaptic(duration)` via `navigator.vibrate` (12ms tactile tick on touch devices).
+
+## Web Components
+- `<ds-header title="..." tagline="..." subpage="true|false"></ds-header>`:
+  - Renders `<header class="l-header">`. If `subpage="true"`, heading is an educational backlink so the page's H1 belongs in `<main>`.
+- `<ds-nav></ds-nav>`:
+  - Renders `<nav class="l-nav" aria-label="Global Sections">` with links to Home, WCAG Principles, Screen Readers, MS Office, Adobe PDF, Sensory Lab, HTML Elements, and Making Of. Automatically resolves and marks `aria-current="page"` and `.is-current` using `window.location.pathname`.
+- `<ds-footer></ds-footer>`:
+  - Renders `<footer class="l-footer">` with copyright and standards notice.
+
+## Templates
+- Home Template: `templates/home.template.html`
+- HTML Element Reference: `templates/element.template.html`
+- Topic Guide: `templates/guide.template.html`
+- Sensory Lab: `templates/lab.template.html`
+
+## Agentic Workflow Guidance
+- Zero Hallucinations: When refactoring pages, use ONLY the CSS classes defined in `css/simpleaccess.css`. Do not invent new class prefixes or inline styles.
+- Standard Shell: Every page links `/assets/ds/simpleaccess.css` and `/assets/ds/simpleaccess.js`.
+- Landmark Integrity: Include `<a href="#main-content" class="m-skip-link">Skip to main content</a>` before `<ds-header>`.
+- Sensory Lab Rule: In `sensory-lab/*/inaccessible/` subpages, DO NOT fix the intentional accessibility barrier markup. Refactor only the outer header/nav/footer chrome.
+
+## Quick Reference Links
+- Full Documentation: `llms-full.txt`
+- Design Tokens: `tokens.json`
+- CSS Master Bundle: `css/simpleaccess.css`
+- Component Bundle: `components/index.js`
