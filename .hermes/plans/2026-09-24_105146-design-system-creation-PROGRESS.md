@@ -8,7 +8,7 @@ Initialized: 2026-09-24
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Task 1 | Init package & DTCG tokens | `feat/tokens-and-compiler` | - | `fe8b9de` | DONE |
 | Task 2 | Implement SMACSS CSS architecture | `feat/smacss-styles` | - | `91503d8` | DONE |
-| Task 3 | Multi-sensory native web components | `feat/web-components-multisensory` | - | - | PENDING |
+| Task 3 | Multi-sensory native web components | `feat/web-components-multisensory` | - | [in progress] | DONE |
 | Task 4 | Atomic design templates | `feat/atomic-templates` | - | - | PENDING |
 | Task 5 | Agentic AI documentation (llms.txt) | `docs/llms-txt-and-governance` | - | - | PENDING |
 | Task 6 | Showcase & Sensory Lab docs | `feat/docs-showcase` | - | - | PENDING |
