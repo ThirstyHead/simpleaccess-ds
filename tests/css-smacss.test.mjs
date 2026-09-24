@@ -34,6 +34,7 @@ test('Base layer enforces WCAG 2.2 accessibility defaults', () => {
 test('Layout layer implements SMACSS .l-* classes', () => {
   const css = fs.readFileSync(layoutCssPath, 'utf-8');
   assert.ok(css.includes('.l-header'), 'Layout must define .l-header');
+  assert.ok(css.includes('.l-header__title') || css.includes('.l-header h1'), 'Layout must explicitly style header title for contrast');
   assert.ok(css.includes('.l-nav'), 'Layout must define .l-nav');
   assert.ok(css.includes('.l-main'), 'Layout must define .l-main');
   assert.ok(css.includes('.l-container'), 'Layout must define .l-container');

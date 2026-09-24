@@ -13,6 +13,18 @@
   border-bottom: var(--sys-border-header-accent, 6px) solid var(--sys-color-interactive-accent, #ffd700);
 }
 
+/* Explicit inverse heading color to guarantee WCAG AAA (13.5:1) contrast against navy background */
+.l-header__title,
+.l-header h1,
+.l-header h2 {
+  color: var(--sys-color-text-inverse, #ffffff);
+  margin-top: 0;
+}
+
+.l-header__tagline {
+  color: var(--sys-color-text-inverse, #ffffff);
+}
+
 /* Global Navigation Landmark (WCAG 2.2 SC 3.2.3 Consistent Navigation) */
 .l-nav {
   background-color: var(--sys-color-bg-surface, #ffffff);

@@ -67,6 +67,7 @@ const distCssPath = path.join(rootDir, 'dist', 'simpleaccess.css');
 const cssPath = fs.existsSync(distCssPath) ? distCssPath : path.join(rootDir, 'css', 'simpleaccess.css');
 const cssContent = fs.readFileSync(cssPath, 'utf-8');
 
+report(cssContent.includes('.l-header__title') && (cssContent.includes('--sys-color-text-inverse') || cssContent.includes('#ffffff')), 'CSS explicitly sets header title color to inverse text for AAA contrast');
 report(cssContent.includes(':focus-visible'), 'CSS defines native :focus-visible rules');
 report(cssContent.includes('outline: 3px solid') || cssContent.includes('outline: 4px solid'), 'CSS focus outline is >= 3px');
 report(cssContent.includes('outline-offset: 3px'), 'CSS focus outline includes 3px offset (SC 2.4.11)');
