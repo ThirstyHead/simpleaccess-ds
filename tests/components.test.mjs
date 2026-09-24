@@ -38,6 +38,7 @@ test('ds-nav.js implements accessible navigation and aria-current="page"', () =>
   assert.ok(code.includes('aria-current'), 'Must compute aria-current="page"');
   assert.ok(code.includes('/sensory-lab/'), 'Must link to sensory lab');
   assert.ok(code.includes('/html/'), 'Must link to HTML reference');
+  assert.ok(code.includes('mode === \'ds\''), 'Must support mode="ds" for design system showcase');
   assert.ok(!code.includes('attachShadow'), 'Must use Light DOM to preserve landmark semantics');
 });
 

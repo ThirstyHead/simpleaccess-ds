@@ -22,14 +22,14 @@
         tagline="WCAG 2.2 AA Multi-Sensory Architecture (Sight, Sound, Touch)">
     </ds-header>
 
-    <!-- Global Navigation Component -->
-    <ds-nav></ds-nav>
+    <!-- Design System Showcase Navigation Component -->
+    <ds-nav mode="ds"></ds-nav>
 
     <!-- Main Content Landmark -->
     <main id="main-content" class="l-main">
 
         <!-- Hero Organism -->
-        <section class="m-hero" aria-labelledby="showcase-hero-heading">
+        <section id="overview" class="m-hero" aria-labelledby="showcase-hero-heading">
             <h2 id="showcase-hero-heading" class="m-hero__title">Living Component & Token Showcase</h2>
             <p class="m-hero__tagline">
                 Experience the clean web standards, SMACSS architecture, and multi-sensory delights powering SimpleAccess.io.
@@ -69,7 +69,7 @@
         </section>
 
         <!-- Component Gallery: Responsive SMACSS Grid -->
-        <section aria-labelledby="gallery-heading">
+        <section id="components" aria-labelledby="gallery-heading">
             <h2 id="gallery-heading">SMACSS Component Catalog</h2>
             <div class="l-grid">
 
@@ -109,7 +109,7 @@
         </section>
 
         <!-- Design Verification Table -->
-        <section class="m-test-suite" aria-labelledby="tokens-heading">
+        <section id="tokens" class="m-test-suite" aria-labelledby="tokens-heading">
             <h2 id="tokens-heading">DTCG 2025.10 Design Tokens</h2>
             <p>Canonical design tokens compiled directly into native CSS custom properties:</p>
             <table class="m-table">
