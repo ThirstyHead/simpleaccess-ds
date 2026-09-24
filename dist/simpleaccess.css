@@ -1,0 +1,721 @@
+/* ==========================================================================
+   SIMPLEACCESS DESIGN SYSTEM - STANDALONE DISTRIBUTION CSS
+   Version: 1.0.0
+   License: MIT
+   Author: Scott Davis <scott@thirstyhead.com>
+   Standards: WCAG 2.2 AA / W3C DTCG 2025.10 / SMACSS
+   ========================================================================== */
+
+
+/* --- Section: tokens.css --- */
+/* ==========================================================================
+   DESIGN TOKENS (Generated from tokens.json - W3C DTCG 2025.10)
+   WCAG 2.2 AA Multi-Sensory Standards (Sight, Sound, Touch)
+   ========================================================================== */
+:root {
+  /* --- Backward-Compatible Variables (SimpleAccess Baseline 1.0.0) --- */
+  --color-primary: #002d62;
+  --color-accent: #ffd700;
+  --color-focus: #d4af37;
+  --color-text: #1a1a1a;
+  --color-bg: #f4f4f4;
+  --color-white: #ffffff;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+  --line-height: 1.7;
+
+  /* --- Semantic Color System --- */
+  --sys-color-bg-canvas: #f4f4f4;
+  --sys-color-bg-surface: #ffffff;
+  --sys-color-bg-container: #e8f0fe;
+  --sys-color-text-main: #1a1a1a;
+  --sys-color-text-muted: #444444;
+  --sys-color-text-inverse: #ffffff;
+  --sys-color-text-accent: #002d62;
+  --sys-color-interactive-primary: #002d62;
+  --sys-color-interactive-hover: #004494;
+  --sys-color-interactive-focus: #d4af37;
+  --sys-color-interactive-accent: #ffd700;
+
+  /* --- Typography Scale & Weights --- */
+  --sys-font-scale-xs: 0.75rem;
+  --sys-font-scale-sm: 0.875rem;
+  --sys-font-scale-base: 1rem;
+  --sys-font-scale-md: 1.1rem;
+  --sys-font-scale-lg: 1.4rem;
+  --sys-font-scale-xl: 1.75rem;
+  --sys-font-scale-xxl: 2.25rem;
+  --sys-font-scale-display: 3rem;
+  --sys-font-weight-regular: 400;
+  --sys-font-weight-medium: 500;
+  --sys-font-weight-semibold: 600;
+  --sys-font-weight-bold: 700;
+  --sys-line-height-tight: 1.2;
+  --sys-line-height-body: 1.7;
+
+  /* --- Spacing Scale --- */
+  --sys-space-xs: 0.25rem;
+  --sys-space-sm: 0.5rem;
+  --sys-space-md: 1rem;
+  --sys-space-lg: 1.5rem;
+  --sys-space-xl: 2rem;
+  --sys-space-xxl: 3rem;
+  --sys-space-huge: 4rem;
+  --sys-space-hero: 5rem;
+
+  /* --- Layout & Boundaries --- */
+  --sys-layout-container-max: 900px;
+  --sys-layout-main-max: 1100px;
+  --sys-layout-grid-min-card: 300px;
+  --sys-border-radius-sm: 4px;
+  --sys-border-radius-md: 8px;
+  --sys-border-radius-lg: 12px;
+  --sys-border-header-accent: 6px;
+  --sys-border-card-lead: 8px;
+  --sys-elevation-nav: 0 2px 5px rgba(0,0,0,0.1);
+  --sys-elevation-card: 0 4px 12px rgba(0,0,0,0.05);
+  --sys-elevation-hero: 0 15px 35px rgba(0,0,0,0.1);
+
+  /* --- Multi-Sensory: Touch & Motion --- */
+  --sys-touch-min-target: 44px;
+  --sys-motion-fast: 0.2s ease;
+}
+
+/* --- Sensory Lab Dark Mode Tokens --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sys-color-bg-canvas: #0a192f;
+    --sys-color-bg-surface: #132238;
+    --sys-color-bg-container: #1b2e4b;
+    --sys-color-text-main: #f0f4f8;
+    --sys-color-text-muted: #cbd5e1;
+    --color-bg: #0a192f;
+    --color-text: #f0f4f8;
+    --color-white: #132238;
+  }
+}
+
+
+/* --- Section: base.css --- */
+/* ==========================================================================
+   SMACSS LAYER 01: BASE
+   Native element defaults, typography, resets, and universal accessibility.
+   View-Source Educational Reference: SimpleAccess.io
+   ========================================================================== */
+
+/* Universal box-sizing reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Document root & body setup */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--sys-font-main, system-ui, -apple-system, sans-serif);
+  line-height: var(--sys-line-height-body, 1.7);
+  color: var(--sys-color-text-main, #1a1a1a);
+  background-color: var(--sys-color-bg-canvas, #f4f4f4);
+  text-rendering: optimizeLegibility;
+}
+
+/* WCAG 2.2 SC 2.4.7 (Focus Visible) & SC 2.4.11 (Focus Appearance)
+   Provides a clear, 3px solid metallic gold focus ring with 3px offset,
+   guaranteeing a minimum 3:1 non-text contrast ratio against surrounding colors. */
+:focus-visible {
+  outline: 3px solid var(--sys-color-interactive-focus, #d4af37);
+  outline-offset: 3px;
+}
+
+/* Fallback for older browsers without :focus-visible */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Heading Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: var(--sys-space-lg, 1.5rem);
+  margin-bottom: var(--sys-space-sm, 0.5rem);
+  line-height: var(--sys-line-height-tight, 1.2);
+  color: var(--sys-color-text-main, #1a1a1a);
+  font-weight: var(--sys-font-weight-bold, 700);
+}
+
+h1 { font-size: var(--sys-font-scale-xxl, 2.25rem); }
+h2 { font-size: var(--sys-font-scale-xl, 1.75rem); }
+h3 { font-size: var(--sys-font-scale-lg, 1.4rem); }
+h4 { font-size: var(--sys-font-scale-md, 1.1rem); }
+
+/* Paragraphs & Reading Rhythm */
+p {
+  margin-top: 0;
+  margin-bottom: var(--sys-space-md, 1rem);
+}
+
+/* Hyperlinks: WCAG 2.2 SC 1.4.1 Use of Color
+   Never rely solely on color to convey links; maintain persistent underlines. */
+a {
+  color: var(--sys-color-interactive-primary, #002d62);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  transition: color var(--sys-motion-fast, 0.2s ease);
+}
+
+a:hover {
+  color: var(--sys-color-interactive-hover, #004494);
+}
+
+/* Monospace & Code Formatting */
+code, kbd, samp, pre {
+  font-family: var(--sys-font-mono, ui-monospace, monospace);
+  font-size: 0.9em;
+}
+
+code {
+  background-color: var(--color-code-bg, #eeeeee);
+  padding: 0.15em 0.35em;
+  border-radius: var(--sys-border-radius-sm, 4px);
+  color: var(--sys-color-text-main, #1a1a1a);
+}
+
+kbd {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  font-size: 0.85em;
+  color: var(--sys-color-text-main, #1a1a1a);
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-bottom: 2px solid #94a3b8;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+pre {
+  background-color: #ffffff;
+  padding: var(--sys-space-md, 1rem);
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid var(--sys-color-interactive-primary, #002d62);
+  border-radius: var(--sys-border-radius-md, 8px);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* Media & Embedded Content */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Lists */
+ul, ol {
+  margin-top: 0;
+  margin-bottom: var(--sys-space-md, 1rem);
+  padding-left: var(--sys-space-xl, 2rem);
+}
+
+li {
+  margin-bottom: var(--sys-space-xs, 0.25rem);
+}
+
+
+/* --- Section: layout.css --- */
+/* ==========================================================================
+   SMACSS LAYER 02: LAYOUT
+   Major structural wireframes, grids, headers, footers, and page sections.
+   Prefix: .l-*
+   ========================================================================== */
+
+/* Global Brand Header Landmark (WCAG 2.2 SC 1.3.1) */
+.l-header {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-md, 1rem);
+  text-align: center;
+  border-bottom: var(--sys-border-header-accent, 6px) solid var(--sys-color-interactive-accent, #ffd700);
+}
+
+/* Global Navigation Landmark (WCAG 2.2 SC 3.2.3 Consistent Navigation) */
+.l-nav {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  box-shadow: var(--sys-elevation-nav, 0 2px 5px rgba(0,0,0,0.1));
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Primary Document Landmark (WCAG 2.2 SC 1.3.1 Info & Relationships) */
+.l-main {
+  max-width: var(--sys-layout-main-max, 1100px);
+  margin: 0 auto;
+  padding: var(--sys-space-xl, 2rem) var(--sys-space-md, 1rem);
+}
+
+/* Content Width Container */
+.l-container {
+  max-width: var(--sys-layout-container-max, 900px);
+  margin: 0 auto;
+  padding: var(--sys-space-lg, 1.5rem) var(--sys-space-md, 1rem);
+}
+
+/* Responsive Component Grid */
+.l-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--sys-layout-grid-min-card, 300px), 1fr));
+  gap: var(--sys-space-xl, 2rem);
+  margin: var(--sys-space-xl, 2rem) 0;
+}
+
+/* Global Footer Landmark */
+.l-footer {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  text-align: center;
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-md, 1rem);
+  margin-top: var(--sys-space-huge, 4rem);
+  border-top: var(--sys-border-header-accent, 6px) solid var(--sys-color-interactive-accent, #ffd700);
+}
+
+.l-footer a {
+  color: var(--sys-color-interactive-accent, #ffd700);
+}
+
+
+/* --- Section: module.css --- */
+/* ==========================================================================
+   SMACSS LAYER 03: MODULE
+   Self-contained, reusable components with multi-sensory ergonomics.
+   Prefix: .m-*
+   ========================================================================== */
+
+/* Skip Link: WCAG 2.2 SC 2.4.1 (Bypass Blocks)
+   Hidden off-screen until focused via keyboard navigation. */
+.m-skip-link {
+  position: absolute;
+  top: -999px;
+  left: 1rem;
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-interactive-accent, #ffd700);
+  padding: var(--sys-space-sm, 0.5rem) var(--sys-space-md, 1rem);
+  z-index: 9999;
+  font-weight: var(--sys-font-weight-bold, 700);
+  border: 2px solid var(--sys-color-interactive-accent, #ffd700);
+  border-radius: var(--sys-border-radius-sm, 4px);
+  text-decoration: none;
+}
+
+.m-skip-link:focus {
+  top: 1rem;
+}
+
+/* Global Navigation List & Links
+   WCAG 2.2 SC 2.5.8 (Target Size): min-height 44px for touch ergonomics. */
+.m-nav-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.m-nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  padding: var(--sys-space-sm, 0.5rem) var(--sys-space-md, 1rem);
+  color: var(--sys-color-interactive-primary, #002d62);
+  text-decoration: none;
+  font-weight: var(--sys-font-weight-bold, 700);
+  border-bottom: 3px solid transparent;
+  transition: all var(--sys-motion-fast, 0.2s ease);
+}
+
+.m-nav-link:hover {
+  background-color: var(--sys-color-bg-canvas, #f4f4f4);
+  color: var(--sys-color-interactive-hover, #004494);
+}
+
+/* Hero Section Module */
+.m-hero {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-lg, 12px);
+  padding: var(--sys-space-xxl, 3rem) var(--sys-space-xl, 2rem);
+  text-align: center;
+  box-shadow: var(--sys-elevation-card, 0 4px 12px rgba(0,0,0,0.05));
+  margin-bottom: var(--sys-space-xxl, 3rem);
+  border-top: 4px solid var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-hero__title {
+  margin-top: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-hero__tagline {
+  font-size: var(--sys-font-scale-lg, 1.4rem);
+  color: var(--sys-color-text-muted, #444444);
+  max-width: 800px;
+  margin: var(--sys-space-md, 1rem) auto var(--sys-space-xl, 2rem);
+}
+
+.m-hero__actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--sys-space-md, 1rem);
+  flex-wrap: wrap;
+}
+
+/* Button Component
+   Delivers tangible tactile feedback (active depression) + 44px touch ergonomics. */
+.m-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--sys-border-radius-md, 8px);
+  font-weight: var(--sys-font-weight-bold, 700);
+  font-size: var(--sys-font-scale-base, 1rem);
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.1s ease, background-color var(--sys-motion-fast, 0.2s ease);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.m-btn:active {
+  transform: scale(0.97);
+}
+
+.m-btn--primary {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+}
+
+.m-btn--primary:hover {
+  background-color: var(--sys-color-interactive-hover, #004494);
+  color: var(--sys-color-text-inverse, #ffffff);
+}
+
+.m-btn--accent {
+  background-color: var(--sys-color-interactive-accent, #ffd700);
+  color: var(--sys-color-interactive-primary, #002d62);
+  border-color: var(--sys-color-interactive-primary, #002d62);
+}
+
+.m-btn--accent:hover {
+  background-color: #ffe44d;
+}
+
+/* Card Component */
+.m-card {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  box-shadow: var(--sys-elevation-card, 0 4px 12px rgba(0,0,0,0.05));
+  border-top: var(--sys-border-card-lead, 8px) solid var(--sys-color-interactive-primary, #002d62);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--sys-motion-fast, 0.2s ease), box-shadow var(--sys-motion-fast, 0.2s ease);
+}
+
+.m-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.m-card__title {
+  margin-top: 0;
+  color: var(--sys-color-interactive-primary, #002d62);
+  font-size: var(--sys-font-scale-xl, 1.75rem);
+}
+
+.m-card__body {
+  flex-grow: 1;
+  color: var(--sys-color-text-main, #1a1a1a);
+}
+
+.m-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--sys-touch-min-target, 44px);
+  font-weight: var(--sys-font-weight-bold, 700);
+  color: var(--sys-color-interactive-primary, #002d62);
+  margin-top: var(--sys-space-md, 1rem);
+}
+
+/* Badge Component */
+.m-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  font-size: var(--sys-font-scale-xs, 0.75rem);
+  font-weight: var(--sys-font-weight-bold, 700);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--sys-border-radius-sm, 4px);
+  background-color: var(--sys-color-interactive-accent, #ffd700);
+  color: var(--sys-color-interactive-primary, #002d62);
+}
+
+/* Manifesto / Mission Quote */
+.m-manifesto {
+  background-color: var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-text-inverse, #ffffff);
+  padding: var(--sys-space-xl, 2rem);
+  border-radius: var(--sys-border-radius-md, 8px);
+  border-left: 8px solid var(--sys-color-interactive-accent, #ffd700);
+  font-size: var(--sys-font-scale-lg, 1.4rem);
+  font-style: italic;
+  margin: var(--sys-space-xxl, 3rem) 0;
+}
+
+/* Test Suite & Data Tables */
+.m-test-suite {
+  background-color: var(--sys-color-bg-container, #e8f0fe);
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  margin-top: var(--sys-space-xxl, 3rem);
+  border: 1px solid #c2d7fa;
+}
+
+.m-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--sys-space-md, 1rem) 0;
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border-radius: var(--sys-border-radius-sm, 4px);
+  overflow: hidden;
+}
+
+.m-table th, .m-table td {
+  padding: var(--sys-space-md, 1rem);
+  text-align: left;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+.m-table th {
+  background-color: #d0def7;
+  color: var(--sys-color-interactive-primary, #002d62);
+  font-weight: var(--sys-font-weight-bold, 700);
+}
+
+.m-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Reference Demo Box */
+.m-demo {
+  background-color: var(--sys-color-bg-surface, #ffffff);
+  border: 2px solid #cbd5e1;
+  border-radius: var(--sys-border-radius-md, 8px);
+  padding: var(--sys-space-xl, 2rem);
+  margin: var(--sys-space-lg, 1.5rem) 0;
+}
+
+/* Spec Link */
+.m-ref-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: var(--sys-font-weight-semibold, 600);
+}
+
+
+/* --- Section: state.css --- */
+/* ==========================================================================
+   SMACSS LAYER 04: STATE
+   Interactive states, dynamic UI conditions, and active navigation indicators.
+   Prefix: .is-*, .has-*, and ARIA state attributes
+   ========================================================================== */
+
+/* Current Active Page in Navigation (WCAG 2.2 SC 3.2.3 & ARIA 1.2) */
+.m-nav-link[aria-current="page"],
+.m-nav-link.is-current {
+  border-bottom: 3px solid var(--sys-color-interactive-primary, #002d62);
+  color: var(--sys-color-interactive-primary, #002d62);
+  background-color: var(--sys-color-bg-canvas, #f4f4f4);
+}
+
+/* Active / Pressed State for Buttons */
+.m-btn.is-active,
+.m-btn:active {
+  transform: scale(0.97);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Disabled State: Guarantee semantic aria-disabled support */
+.m-btn[aria-disabled="true"],
+.m-btn.is-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Hidden Utility State */
+.is-hidden {
+  display: none !important;
+}
+
+/* Visually Hidden (Screen Reader Only) */
+.is-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+/* --- Section: theme.css --- */
+/* ==========================================================================
+   SMACSS LAYER 05: THEME
+   Visual adaptations for dark mode, high contrast, and reduced motion.
+   View-Source Educational Reference: SimpleAccess.io
+   ========================================================================== */
+
+/* 1. Dark Mode Theme (User Preferred) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--sys-color-bg-canvas, #0a192f);
+    color: var(--sys-color-text-main, #f0f4f8);
+  }
+
+  .l-nav {
+    background-color: #132238;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+
+  .m-nav-link {
+    color: #f0f4f8;
+  }
+
+  .m-nav-link:hover,
+  .m-nav-link[aria-current="page"] {
+    background-color: #1b2e4b;
+    color: var(--sys-color-interactive-accent, #ffd700);
+    border-bottom-color: var(--sys-color-interactive-accent, #ffd700);
+  }
+
+  .m-hero,
+  .m-card,
+  .m-demo {
+    background-color: #132238;
+    color: #f0f4f8;
+    border-color: #1e3a5f;
+  }
+
+  .m-hero__title,
+  .m-card__title {
+    color: var(--sys-color-interactive-accent, #ffd700);
+  }
+
+  .m-hero__tagline,
+  .m-card__body {
+    color: #cbd5e1;
+  }
+
+  .m-test-suite {
+    background-color: #1b2e4b;
+    border-color: #2b4772;
+  }
+
+  .m-table {
+    background-color: #132238;
+    color: #f0f4f8;
+  }
+
+  .m-table th {
+    background-color: #1e3a5f;
+    color: #ffd700;
+  }
+
+  .m-table th, .m-table td {
+    border-bottom-color: #2b4772;
+  }
+
+  code {
+    background-color: #1b2e4b;
+    color: #ffd700;
+  }
+
+  pre {
+    background-color: #132238;
+    border-color: #2b4772;
+    border-left-color: var(--sys-color-interactive-accent, #ffd700);
+  }
+}
+
+/* 2. Windows High Contrast Mode (WCAG 2.2 SC 1.4.11 Non-text Contrast)
+   Ensures semantic borders and focus outlines remain crisp in forced colors. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 3px solid Highlight !important;
+    outline-offset: 3px;
+  }
+
+  .m-btn {
+    border: 2px solid ButtonText !important;
+  }
+
+  .m-card,
+  .m-hero,
+  .m-manifesto {
+    border: 2px solid CanvasText !important;
+  }
+
+  .m-nav-link[aria-current="page"] {
+    border-bottom: 3px solid Highlight !important;
+  }
+}
+
+/* 3. Reduced Motion (WCAG 2.2 SC 2.3.3 Animation from Interactions) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 4. Print Styles */
+@media print {
+  .l-nav,
+  .m-skip-link,
+  .m-hero__actions {
+    display: none !important;
+  }
+
+  body {
+    background: transparent;
+    color: #000000;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000000;
+  }
+}
+

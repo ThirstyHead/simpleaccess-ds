@@ -5,9 +5,16 @@
   "type": "module",
   "main": "dist/simpleaccess.js",
   "style": "dist/simpleaccess.css",
+  "exports": {
+    ".": "./dist/simpleaccess.js",
+    "./css": "./dist/simpleaccess.css",
+    "./tokens": "./dist/tokens.json"
+  },
   "scripts": {
     "build:tokens": "node scripts/build-tokens.mjs",
-    "build": "node scripts/build.mjs",
+    "build:dist": "node scripts/build-dist.mjs",
+    "build": "npm run build:tokens && npm run build:dist",
+    "audit": "node scripts/audit-a11y.mjs",
     "test": "node --test tests/*.test.mjs"
   },
   "keywords": [
