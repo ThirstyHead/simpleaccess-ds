@@ -1,6 +1,6 @@
 {
   "name": "@simpleaccess/ds",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SimpleAccess Design System: WCAG 2.2 AA multi-sensory (sight, sound, touch) design system based on SMACSS, Atomic Design, and W3C DTCG 2025.10 tokens.",
   "type": "module",
   "main": "dist/simpleaccess.js",

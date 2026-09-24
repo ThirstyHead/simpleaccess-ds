@@ -55,7 +55,8 @@ const sensoryJs = fs.readFileSync(path.join(componentsDir, 'ds-sensory.js'), 'ut
 const cleanJs = (code) => {
   return code
     .replace(/^import\s+.*?;\s*$/gm, '')
-    .replace(/^export\s+(class|function|const|let)\s+/gm, '$1 ');
+    .replace(/^export\s+(class|function|const|let)\s+/gm, '$1 ')
+    .replace(/^export\s+\{.*?\};?\s*$/gm, '');
 };
 
 const bundleJs = `/**
