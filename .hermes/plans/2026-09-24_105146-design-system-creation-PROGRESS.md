@@ -6,7 +6,7 @@ Initialized: 2026-09-24
 
 | Task | Description | Branch | PR | Commit SHA | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Task 1 | Init package & DTCG tokens | `feat/tokens-and-compiler` | - | [in progress] | DONE |
+| Task 1 | Init package & DTCG tokens | `feat/tokens-and-compiler` | - | `fe8b9de` | DONE |
 | Task 2 | Implement SMACSS CSS architecture | `feat/smacss-styles` | - | - | PENDING |
 | Task 3 | Multi-sensory native web components | `feat/web-components-multisensory` | - | - | PENDING |
 | Task 4 | Atomic design templates | `feat/atomic-templates` | - | - | PENDING |
