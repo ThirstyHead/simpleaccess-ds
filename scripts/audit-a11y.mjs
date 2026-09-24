@@ -75,21 +75,27 @@ report(cssContent.includes('44px'), 'CSS enforces 44px minimum touch target size
 report(cssContent.includes('forced-colors: active'), 'CSS provides Windows High Contrast Mode overrides');
 report(cssContent.includes('prefers-reduced-motion: reduce'), 'CSS honors prefers-reduced-motion');
 
-// 3. Audit Templates
-console.log('\n3. Auditing Atomic Design Templates:');
-const templates = ['home.template.html', 'element.template.html', 'guide.template.html', 'lab.template.html'];
+// 3. Audit Templates & HTML Documentation
+console.log('\n3. Auditing HTML Documents (Templates & Docs):');
+const htmlDocs = [
+  path.join(rootDir, 'templates', 'home.template.html'),
+  path.join(rootDir, 'templates', 'element.template.html'),
+  path.join(rootDir, 'templates', 'guide.template.html'),
+  path.join(rootDir, 'templates', 'lab.template.html'),
+  path.join(rootDir, 'docs', 'index.html'),
+];
 
-for (const tpl of templates) {
-  const tplPath = path.join(rootDir, 'templates', tpl);
-  const html = fs.readFileSync(tplPath, 'utf-8');
+for (const docPath of htmlDocs) {
+  const docName = path.relative(rootDir, docPath);
+  const html = fs.readFileSync(docPath, 'utf-8');
   
-  report(html.includes('<html lang="en">'), `${tpl}: specifies lang="en" attribute`);
-  report(html.includes('<title>'), `${tpl}: contains descriptive <title> tag`);
-  report(html.includes('class="m-skip-link"'), `${tpl}: contains skip-to-content bypass block (SC 2.4.1)`);
-  report(html.includes('<main id="main-content"'), `${tpl}: contains primary landmark <main id="main-content">`);
-  report(html.includes('<ds-header'), `${tpl}: includes global <ds-header> landmark`);
-  report(html.includes('<ds-nav'), `${tpl}: includes global <ds-nav> landmark`);
-  report(html.includes('<ds-footer'), `${tpl}: includes global <ds-footer> landmark`);
+  report(html.includes('<html lang="en">'), `${docName}: specifies lang="en" attribute`);
+  report(html.includes('<title>'), `${docName}: contains descriptive <title> tag`);
+  report(html.includes('class="m-skip-link"'), `${docName}: contains skip-to-content bypass block (SC 2.4.1)`);
+  report(html.includes('<main id="main-content"'), `${docName}: contains primary landmark <main id="main-content">`);
+  report(html.includes('<ds-header'), `${docName}: includes global <ds-header> landmark`);
+  report(html.includes('<ds-nav'), `${docName}: includes global <ds-nav> landmark`);
+  report(html.includes('<ds-footer'), `${docName}: includes global <ds-footer> landmark`);
 }
 
 console.log('\n--- AUDIT SUMMARY ---');

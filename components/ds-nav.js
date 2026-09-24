@@ -14,6 +14,8 @@ class DsNav extends HTMLElement {
 
     const mode = this.getAttribute('mode') || 'site';
     const baseUrl = this.getAttribute('base-url') || '';
+    const isSubpage = this.hasAttribute('subpage') || this.getAttribute('subpage') === 'true';
+    const prefix = isSubpage ? '../' : '';
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '/';
     const currentHash = typeof window !== 'undefined' ? window.location.hash : '';
 
@@ -23,13 +25,19 @@ class DsNav extends HTMLElement {
     if (mode === 'ds') {
       navLabel = 'Design System Sections';
       links = [
-        { href: '#overview', label: 'Overview' },
-        { href: '#sensory-demo', label: 'Sensory Lab' },
-        { href: '#components', label: 'Components' },
-        { href: '#tokens', label: 'Tokens' },
-        { href: 'templates/home.template.html', label: 'Templates' },
-        { href: 'DESIGN_SYSTEM.md', label: 'Docs' },
-        { href: 'llms.txt', label: 'AI Spec (llms.txt)' },
+        { href: `${prefix}#overview`, label: 'Overview' },
+        { href: `${prefix}#sensory-demo`, label: 'Sensory Lab' },
+        { href: `${prefix}#components`, label: 'Components' },
+        { href: `${prefix}#tokens`, label: 'Tokens' },
+        { href: `${prefix}templates/home.template.html`, label: 'Templates' },
+        { href: `${prefix}docs/`, label: 'Governance Spec' },
+        { 
+          href: `${prefix}llms.txt`, 
+          label: 'AI Spec', 
+          badge: '.TXT', 
+          formatHint: 'opens raw plain text manifest for AI models',
+          type: 'text/plain'
+        },
         { href: 'https://simpleaccess.io/', label: 'SimpleAccess.io \u2197', external: true }
       ];
     } else {
@@ -65,8 +73,11 @@ class DsNav extends HTMLElement {
       const ariaCurrent = isCurrent ? ' aria-current="page"' : '';
       const currentClass = isCurrent ? ' is-current' : '';
       const externalAttrs = link.external ? ' rel="external" target="_blank"' : '';
+      const typeAttr = link.type ? ` type="${link.type}"` : '';
+      const badgeMarkup = link.badge ? ` <span class="m-badge m-badge--neutral m-badge--sm">${link.badge}</span>` : '';
+      const hintMarkup = link.formatHint ? `<span class="u-visually-hidden"> (${link.formatHint})</span>` : '';
 
-      return `<li><a href="${link.href}" class="m-nav-link${currentClass}"${ariaCurrent}${externalAttrs}>${link.label}</a></li>`;
+      return `<li><a href="${link.href}" class="m-nav-link${currentClass}"${ariaCurrent}${externalAttrs}${typeAttr}>${link.label}${badgeMarkup}${hintMarkup}</a></li>`;
     }).join('\n        ');
 
     const ariaLabel = mode === 'ds'

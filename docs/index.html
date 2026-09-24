@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance Specification — SimpleAccess Design System</title>
+    <meta name="description" content="Comprehensive governance specification, SMACSS architecture, W3C DTCG tokens, and WCAG 2.2 AA multi-sensory guidelines for SimpleAccess.">
+
+    <!-- Design System Standalone CSS Bundle -->
+    <link rel="stylesheet" href="../dist/simpleaccess.css">
+
+    <!-- Design System Web Components (Light DOM Autonomous Custom Elements) -->
+    <script type="module" src="../components/index.js"></script>
+</head>
+<body>
+    <!-- 
+      WCAG 2.2 SC 2.4.1 (Bypass Blocks):
+      Enables keyboard and screen reader visitors to jump past header landmarks directly to primary content.
+    -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header Component configured for subpage navigation -->
+    <ds-header 
+        title="SimpleAccess Design System" 
+        tagline="Governance, Multi-Sensory Standards & Agentic Architecture"
+        subpage="true"
+        home-url="../">
+    </ds-header>
+
+    <!-- Global Navigation Component in Design System mode with subpage routing -->
+    <ds-nav mode="ds" subpage="true"></ds-nav>
+
+    <!-- Main Content Landmark -->
+    <main id="main-content" class="l-main">
+
+        <!-- Format Expectation Callout: Sets clear expectation between HTML reading and raw source artifacts -->
+        <aside class="m-manifesto" style="margin-top: var(--sys-space-lg, 1.5rem); margin-bottom: var(--sys-space-xl, 2rem); font-style: normal;" aria-label="Document Format & Alternative Feeds">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h2 style="color: var(--sys-color-interactive-accent, #ffd700); margin: 0 0 0.5rem 0; font-size: 1.25rem;">
+                        Document Format: Rich Semantic HTML
+                    </h2>
+                    <p style="margin: 0; font-size: 0.95rem; max-width: 65ch; line-height: 1.5; color: var(--sys-color-text-inverse, #ffffff);">
+                        You are reading the official human-friendly documentation typeset with SimpleAccess SMACSS modules. Looking for direct developer or AI agent feeds?
+                    </p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+                    <a href="../DESIGN_SYSTEM.md" type="text/markdown" class="m-btn m-btn--accent" style="font-size: 0.9rem;">
+                        Raw Markdown <span class="m-badge m-badge--inverse m-badge--sm">.MD</span>
+                        <span class="u-visually-hidden">(opens raw plain text Markdown document)</span>
+                    </a>
+                    <a href="../llms.txt" type="text/plain" class="m-btn" style="background-color: #ffffff; color: #002d62; font-size: 0.9rem;">
+                        AI Spec <span class="m-badge m-badge--neutral m-badge--sm">.TXT</span>
+                        <span class="u-visually-hidden">(opens raw plain text manifest for AI models)</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <header class="m-hero" style="margin-bottom: var(--sys-space-xl, 2rem);">
+            <h1 class="m-hero__title" style="margin-top: 0;">SimpleAccess Design System Governance</h1>
+            <p class="m-hero__tagline">
+                A WCAG 2.2 AA multi-sensory design system built for humans, software engineers, and autonomous AI agents.
+            </p>
+        </header>
+
+        <!-- Chapter Table of Contents -->
+        <nav class="m-card" style="margin-bottom: var(--sys-space-xl, 2rem);" aria-label="Governance Chapters">
+            <h2 class="m-card__title" style="margin-top: 0; font-size: 1.2rem;">Table of Contents</h2>
+            <ul style="margin: 0; padding-left: 1.25rem; line-height: 1.8;">
+                <li><a href="#philosophy" class="m-link-subtle">1. Philosophy & Core Identity</a></li>
+                <li><a href="#sensory" class="m-link-subtle">2. Multi-Sensory Delight: Sight, Sound, and Touch</a></li>
+                <li><a href="#smacss" class="m-link-subtle">3. SMACSS CSS Architecture</a></li>
+                <li><a href="#atomic" class="m-link-subtle">4. Brad Frost Atomic Design Methodology</a></li>
+                <li><a href="#tokens" class="m-link-subtle">5. W3C Design Tokens Community Group (DTCG 2025.10)</a></li>
+                <li><a href="#webcomponents" class="m-link-subtle">6. Autonomous Custom Elements (Light DOM)</a></li>
+                <li><a href="#agentic" class="m-link-subtle">7. Agentic AI Workflows & Conference Presentation Guide</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section 1 -->
+        <section id="philosophy" aria-labelledby="heading-philosophy" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-philosophy">1. Philosophy & Core Identity</h2>
+            <p>
+                The web is an inherently accessible, dynamic document medium first, and a visual canvas second. The <strong>SimpleAccess Design System</strong> (<code>simpleaccess-ds</code>) was created to unify <a href="https://simpleaccess.io/" rel="external" target="_blank" class="m-link-subtle">SimpleAccess.io ↗</a> under a clean, zero-bloat, standards-compliant architectural framework.
+            </p>
+            <p>
+                Most modern web frameworks bury standard HTML semantics beneath towering piles of runtime abstractions, virtual DOM trees, and vendor lock-in. SimpleAccess proves that the native web platform—empowered by modern W3C standards—already provides everything needed to build fast, resilient, beautiful, and deeply accessible digital experiences.
+            </p>
+            <h3>Key Tenets</h3>
+            <ol>
+                <li>
+                    <strong>View Source as Education:</strong> The source markup of every page is an educational resource. Anyone inspecting elements in their browser encounters clean, readable markup with crisp comments explaining <em>why</em> specific accessibility attributes, semantic elements, or ARIA roles were chosen.
+                </li>
+                <li>
+                    <strong>Lean & Dependency-Free:</strong> Zero client-side JavaScript frameworks. Zero CSS preprocessors. We use native CSS Custom Properties, native Autonomous Custom Elements (Light DOM), and standards-based build tools.
+                </li>
+                <li>
+                    <strong>Universal Accessibility-First:</strong> Compliance with WCAG 2.2 AA is foundational, never a retroactive bolt-on.
+                </li>
+            </ol>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="sensory" aria-labelledby="heading-sensory" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-sensory">2. Multi-Sensory Delight: Sight, Sound, and Touch</h2>
+            <p>
+                Accessibility is too often framed purely as a checklist of restrictions. At SimpleAccess, accessibility is reimagined as <strong>multi-sensory delight</strong>—deliberately orchestrating visual, auditory, and tactile sensations to create a richer experience for everyone.
+            </p>
+
+            <h3>Sight (Visual Harmony & Contrast)</h3>
+            <ul>
+                <li><strong>High-Contrast Palette:</strong> Deep Brand Navy (<code>#002d62</code>) against pure White (<code>#ffffff</code>) yields a <strong>13.53:1</strong> contrast ratio. Charcoal body text (<code>#1a1a1a</code>) achieves <strong>17.40:1</strong>, vastly exceeding WCAG AAA standards.</li>
+                <li><strong>Unambiguous Focus Indicators:</strong> A 3px solid Metallic Gold focus ring (<code>#d4af37</code>) with a 3px outline offset guarantees immediate keyboard orientation without visually crowding the control.</li>
+                <li><strong>Adaptive Modes:</strong> First-class support for <code>prefers-color-scheme: dark</code> and Windows High Contrast Mode (<code>forced-colors: active</code>).</li>
+            </ul>
+
+            <h3>Sound (Acoustic Feedback & Screen Reader Semantics)</h3>
+            <ul>
+                <li><strong>Semantic Landmark Clarity:</strong> Standard landmarks (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>) allow screen reader users to jump between page regions effortlessly.</li>
+                <li><strong>Web Audio Earcons:</strong> Pleasant acoustic earcons generated via the native Web Audio API (e.g. 440 Hz pure sine wave with smooth exponential decay) provide immediate auditory confirmation for interactive actions.</li>
+                <li><strong>Cognitive Quiet:</strong> Audio feedback automatically honors <code>prefers-reduced-motion</code> and provides user mute toggles.</li>
+            </ul>
+
+            <h3>Touch (Tactile Ergonomics & Haptics)</h3>
+            <ul>
+                <li><strong>Generous 44px Touch Targets:</strong> All interactive controls maintain a minimum footprint of 44x44px (<code>--sys-touch-min-target</code>), exceeding WCAG 2.2 SC 2.5.8 (24px) to ensure effortless operation on touchscreens and for users with motor tremors.</li>
+                <li><strong>Haptic Vibration:</strong> Subtle tactile pulses (12ms) via the Web Haptic API (<code>navigator.vibrate</code>) give physical presence to digital taps on supported devices.</li>
+                <li><strong>Physical Spring Feedback:</strong> Active states physically depress (<code>transform: scale(0.97)</code>) to simulate tactile resistance.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="smacss" aria-labelledby="heading-smacss" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-smacss">3. SMACSS CSS Architecture</h2>
+            <p>
+                We structure our CSS using Jonathan Snook’s <strong>Scalable and Modular Architecture for CSS (SMACSS)</strong> to eliminate specificity wars and keep styles decoupled:
+            </p>
+            <ol>
+                <li><strong>Base (<code>01-base/</code>):</strong> Element selectors only. Box model resets, typography scales, default links, code blocks, and global <code>:focus-visible</code> styling. No class selectors allowed.</li>
+                <li><strong>Layout (<code>02-layout/</code>):</strong> Major page wireframe regions prefixed with <code>.l-*</code> (<code>.l-header</code>, <code>.l-nav</code>, <code>.l-main</code>, <code>.l-container</code>, <code>.l-grid</code>, <code>.l-footer</code>).</li>
+                <li><strong>Module (<code>03-module/</code>):</strong> Reusable, self-contained components prefixed with <code>.m-*</code> (<code>.m-hero</code>, <code>.m-card</code>, <code>.m-btn</code>, <code>.m-table</code>, <code>.m-badge</code>, <code>.m-manifesto</code>, <code>.m-demo</code>).</li>
+                <li><strong>State (<code>04-state/</code>):</strong> Interactive conditions prefixed with <code>.is-*</code> (<code>.is-current</code>, <code>.is-active</code>, <code>.is-disabled</code>) and ARIA attribute selectors (<code>[aria-current="page"]</code>).</li>
+                <li><strong>Theme (<code>05-theme/</code>):</strong> Media queries adapting colors and animations (<code>prefers-color-scheme</code>, <code>forced-colors</code>, <code>prefers-reduced-motion</code>).</li>
+            </ol>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="atomic" aria-labelledby="heading-atomic" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-atomic">4. Brad Frost Atomic Design Methodology</h2>
+            <p>
+                SimpleAccess organizes UI patterns according to Brad Frost's Atomic Design:
+            </p>
+            <ul>
+                <li><strong>Atoms:</strong> Design tokens, colors, typography scales, spacing units, and native HTML tags (<code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;a&gt;</code>).</li>
+                <li><strong>Molecules:</strong> Functional combinations such as <code>.m-skip-link</code>, <code>.m-nav-list</code>, <code>.m-badge</code>, and <code>.m-btn</code>.</li>
+                <li><strong>Organisms:</strong> Complex UI sections such as <code>.m-hero</code>, <code>.l-grid</code> card collections, and <code>.m-test-suite</code>.</li>
+                <li><strong>Templates:</strong> Page blueprints located in <code>templates/</code> (<code>home.template.html</code>, <code>element.template.html</code>, <code>guide.template.html</code>, <code>lab.template.html</code>).</li>
+                <li><strong>Pages:</strong> Concrete HTML pages deployed across SimpleAccess.io.</li>
+            </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="tokens" aria-labelledby="heading-tokens" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-tokens">5. W3C Design Tokens Community Group (DTCG 2025.10)</h2>
+            <p>
+                Our single source of truth for all design decisions is <code>tokens.json</code>, authored strictly to the <strong>W3C DTCG 2025.10 Specification</strong>:
+            </p>
+            <pre><code>{
+  "color": {
+    "palette": {
+      "navy": {
+        "$value": "#002d62",
+        "$type": "color",
+        "$description": "Core primary brand color. Contrast ratio 13.53:1 against white."
+      }
+    }
+  }
+}</code></pre>
+            <p>
+                A lightweight native Node.js compiler (<code>scripts/build-tokens.mjs</code>) translates <code>tokens.json</code> into:
+            </p>
+            <ul>
+                <li><code>css/tokens.css</code>: Standard CSS custom properties scoped to <code>:root</code> and <code>@media (prefers-color-scheme: dark)</code>.</li>
+                <li><code>dist/tokens.json</code>: Distribution token JSON for external consumers.</li>
+            </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="webcomponents" aria-labelledby="heading-webcomponents" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-webcomponents">6. Autonomous Custom Elements (Light DOM)</h2>
+            <p>
+                We utilize the W3C Web Components standard (<code>customElements.define</code>) while deliberately choosing <strong>Light DOM</strong> over Shadow DOM:
+            </p>
+            <ul>
+                <li><strong>Preserved Accessibility Tree:</strong> Shadow DOM can create barriers for screen readers navigating semantic landmark hierarchies. Light DOM renders semantic <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, and <code>&lt;footer&gt;</code> elements directly into the main document tree.</li>
+                <li><strong>Seamless Styling:</strong> Custom elements inherit all global SMACSS styles and CSS custom properties without requiring shadow-piercing hacks or duplicate CSS imports.</li>
+            </ul>
+            <p>Components included:</p>
+            <ul>
+                <li><code>&lt;ds-header&gt;</code>: Renders <code>.l-header</code> banner with site title, tagline, and subpage link options.</li>
+                <li><code>&lt;ds-nav&gt;</code>: Renders <code>.l-nav</code> navigation bar supporting both <code>mode="site"</code> (for SimpleAccess.io) and <code>mode="ds"</code> (for Design System showcase), automatically highlighting active items.</li>
+                <li><code>&lt;ds-footer&gt;</code>: Renders <code>.l-footer</code> with ThirstyHead copyright and standards metadata.</li>
+            </ul>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="agentic" aria-labelledby="heading-agentic" style="margin-bottom: var(--sys-space-xxl, 3rem);">
+            <h2 id="heading-agentic">7. Agentic AI Workflows & Conference Presentation Guide</h2>
+            <p>
+                SimpleAccess Design System is explicitly designed to be showcased at international software conferences as a gold standard for <strong>Agentic AI Engineering</strong>.
+            </p>
+
+            <h3>Why Design Systems Are Essential for Agentic AI</h3>
+            <p>
+                Frontier AI models (such as Gemini 3.8 Flash, Claude 3.7 Sonnet, and GPT-4o) and local models (such as Gemma 4 31B Dense and 26B MoE) are extraordinarily capable programmers, but when tasked with modifying large web applications page-by-page, they suffer from <strong>design drift</strong>:
+            </p>
+            <ul>
+                <li>Models invent slightly different hex codes on each page (<code>#002d60</code> vs <code>#002d62</code>).</li>
+                <li>Models write conflicting CSS class names (<code>.btn-primary</code> vs <code>.main-button</code>).</li>
+                <li>Models forget critical accessibility attributes when generating markup in isolation.</li>
+            </ul>
+
+            <h3>The Agentic Solution: <code>llms.txt</code> + Deterministic Governance</h3>
+            <p>
+                By pairing a rigid W3C DTCG token structure with an <code>llms.txt</code> file (following the <a href="https://llmstxt.org/" rel="external" target="_blank" class="m-link-subtle">llmstxt.org ↗</a> standard):
+            </p>
+            <ol>
+                <li><strong>Context Window Efficiency:</strong> Rather than ingesting thousands of lines of CSS, the AI agent reads <code>llms.txt</code> to grasp the complete design vocabulary in seconds.</li>
+                <li><strong>Zero Hallucination UI:</strong> Agents are constrained to a fixed catalog of SMACSS classes (<code>.m-hero</code>, <code>.m-card</code>, <code>.m-btn</code>) and custom components (<code>&lt;ds-header&gt;</code>, <code>&lt;ds-nav&gt;</code>).</li>
+                <li><strong>Automated Verification:</strong> The agent runs deterministic test suites (<code>npm test</code>) to verify contrast ratios, landmark presence, and skip links before committing code.</li>
+            </ol>
+            <p>
+                SimpleAccess demonstrates that the combination of clean web standards, structured CSS architecture, and autonomous AI agents produces software of unparalleled quality, accessibility, and speed.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Global Footer Component -->
+    <ds-footer></ds-footer>
+</body>
+</html>

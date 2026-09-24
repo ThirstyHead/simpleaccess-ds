@@ -74,6 +74,16 @@
     border-color: #2b4772;
     border-left-color: var(--sys-color-interactive-accent, #ffd700);
   }
+
+  .m-badge--neutral {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+  }
+
+  .m-link-subtle {
+    color: var(--sys-color-interactive-accent, #ffd700);
+  }
 }
 
 /* 2. Windows High Contrast Mode (WCAG 2.2 SC 1.4.11 Non-text Contrast)

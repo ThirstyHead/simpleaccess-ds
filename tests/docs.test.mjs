@@ -36,3 +36,20 @@ test('DESIGN_SYSTEM.md provides comprehensive conference and governance guidance
   assert.ok(content.includes('Sight, Sound, and Touch'), 'Must document multi-sensory delight');
   assert.ok(content.includes('Agentic AI Workflows'), 'Must document conference presentation points on Agentic AI');
 });
+
+test('docs/index.html renders rich HTML governance spec with format expectation priming (Pattern 1 & 2)', () => {
+  const docsHtmlPath = path.join(rootDir, 'docs', 'index.html');
+  assert.ok(fs.existsSync(docsHtmlPath), 'docs/index.html must exist for rich HTML documentation');
+
+  const content = fs.readFileSync(docsHtmlPath, 'utf-8');
+  assert.ok(content.includes('<html lang="en">'), 'Must specify lang="en"');
+  assert.ok(content.includes('class="m-skip-link"'), 'Must provide skip link');
+  assert.ok(content.includes('<ds-header'), 'Must include ds-header');
+  assert.ok(content.includes('<ds-nav mode="ds"'), 'Must include ds-nav in ds mode');
+  assert.ok(content.includes('<main id="main-content"'), 'Must include main landmark');
+  assert.ok(content.includes('type="text/markdown"'), 'Must use type="text/markdown" for raw MD links');
+  assert.ok(content.includes('type="text/plain"'), 'Must use type="text/plain" for raw TXT links');
+  assert.ok(content.includes('class="u-visually-hidden"'), 'Must provide screen reader priming text');
+  assert.ok(content.includes('class="m-badge'), 'Must provide visual format badge');
+  assert.ok(content.includes('<ds-footer'), 'Must include ds-footer');
+});

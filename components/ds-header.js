@@ -9,9 +9,11 @@ class DsHeader extends HTMLElement {
     const tagline = this.getAttribute('tagline') || 'Delighting the Senses: Sight, Sound, and Touch';
     const isSubpage = this.hasAttribute('subpage') || this.getAttribute('subpage') === 'true';
 
+    const homeUrl = this.getAttribute('home-url') || '/';
+
     // In subpages, the primary h1 belongs in <main>, so header uses an educational link/banner
     const headingMarkup = isSubpage
-      ? `<p class="l-header__title"><a href="/" style="color: inherit; text-decoration: none; font-weight: 700; font-size: 1.5rem;">${this.escape(title)}</a></p>`
+      ? `<p class="l-header__title"><a href="${this.escape(homeUrl)}" style="color: inherit; text-decoration: none; font-weight: 700; font-size: 1.5rem;">${this.escape(title)}</a></p>`
       : `<h1 class="l-header__title" style="margin-top: 0; font-size: 2.25rem; color: var(--sys-color-text-inverse, #ffffff);">${this.escape(title)}</h1>`;
 
     this.innerHTML = `

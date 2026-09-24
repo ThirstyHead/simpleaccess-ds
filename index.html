@@ -34,9 +34,13 @@
             <p class="m-hero__tagline">
                 Experience the clean web standards, SMACSS architecture, and multi-sensory delights powering SimpleAccess.io.
             </p>
-            <div class="m-hero__actions">
+            <div class="m-hero__actions" style="display: flex; gap: var(--sys-space-md, 1rem); align-items: center; flex-wrap: wrap;">
                 <a href="#sensory-demo" class="m-btn m-btn--accent">Try Multi-Sensory Demo</a>
-                <a href="DESIGN_SYSTEM.md" class="m-btn m-btn--primary">Read Governance Spec</a>
+                <a href="docs/" class="m-btn m-btn--primary">Read Governance Spec</a>
+                <a href="DESIGN_SYSTEM.md" type="text/markdown" class="m-link-subtle" style="font-size: 0.95rem;">
+                    Raw Spec <span class="m-badge m-badge--neutral m-badge--sm">.MD</span>
+                    <span class="u-visually-hidden">(opens raw plain text Markdown document)</span>
+                </a>
             </div>
         </section>
 
@@ -96,13 +100,42 @@
                     <a href="templates/home.template.html" class="m-card__link">Inspect Home Template &rarr;</a>
                 </article>
 
+                <!-- Governance Card (Pattern 2: HTML Page First, Raw Spec Second) -->
+                <article class="m-card">
+                    <span class="m-badge">Architecture</span>
+                    <h3 class="m-card__title">Governance Spec</h3>
+                    <div class="m-card__body">
+                        <p>SMACSS organization, W3C DTCG tokens, and WCAG 2.2 AA multi-sensory guidelines.</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+                        <a href="docs/" class="m-card__link">Read Documentation (HTML) &rarr;</a>
+                        <a href="DESIGN_SYSTEM.md" type="text/markdown" class="m-link-subtle" style="font-size: 0.85rem;">
+                            View Raw Spec <span class="m-badge m-badge--neutral m-badge--sm">.MD</span>
+                            <span class="u-visually-hidden">(opens raw plain text Markdown document)</span>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- llms.txt Card (Pattern 1: Visual Format Badges & Screen Reader Priming) -->
                 <article class="m-card">
                     <span class="m-badge">Agentic AI</span>
                     <h3 class="m-card__title">llms.txt Context</h3>
                     <div class="m-card__body">
                         <p>Machine-readable index allowing Gemini and Gemma models to refactor pages with zero drift.</p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.8rem; color: var(--sys-color-text-muted, #555555);">
+                            Format: <strong>Plain Text (.txt)</strong> for LLM context ingestion.
+                        </p>
                     </div>
-                    <a href="llms.txt" class="m-card__link">Inspect llms.txt &rarr;</a>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: auto;">
+                        <a href="llms.txt" type="text/plain" class="m-card__link">
+                            Inspect llms.txt <span class="m-badge m-badge--neutral m-badge--sm">.TXT</span>
+                            <span class="u-visually-hidden">(opens raw plain text manifest for AI models)</span> &rarr;
+                        </a>
+                        <a href="llms-full.txt" type="text/plain" class="m-link-subtle" style="font-size: 0.85rem;">
+                            Full Manifest <span class="m-badge m-badge--neutral m-badge--sm">.TXT</span>
+                            <span class="u-visually-hidden">(opens raw plain text extended manifest)</span>
+                        </a>
+                    </div>
                 </article>
 
             </div>
