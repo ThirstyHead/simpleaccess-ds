@@ -11,7 +11,7 @@ Initialized: 2026-09-24
 | Task 3 | Multi-sensory native web components | `feat/web-components-multisensory` | - | `a5694d7` | DONE |
 | Task 4 | Atomic design templates | `feat/atomic-templates` | - | `544e03e` | DONE |
 | Task 5 | Agentic AI documentation (llms.txt) | `docs/llms-txt-and-governance` | - | `c9284e0` | DONE |
-| Task 6 | Showcase & Sensory Lab docs | `feat/docs-showcase` | - | [in progress] | DONE |
+| Task 6 | Showcase & Sensory Lab docs | `feat/docs-showcase` | - | `1f60d06` | DONE |
 | Task 7 | Build & packaging pipeline | `feat/build-and-dist` | - | - | PENDING |
 
 ---
