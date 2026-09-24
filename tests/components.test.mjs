@@ -46,6 +46,8 @@ test('ds-footer.js implements accessible footer', () => {
   assert.ok(code.includes('customElements.define'), 'Must register custom element');
   assert.ok(code.includes('ds-footer'), 'Element name must be ds-footer');
   assert.ok(code.includes('l-footer'), 'Must render SMACSS .l-footer');
+  assert.ok(code.includes('ThirstyHead'), 'Must attribute ThirstyHead');
+  assert.ok(code.includes('https://thirstyhead.com/'), 'Must link to https://thirstyhead.com/');
 });
 
 test('ds-sensory.js exports accessible audio earcon and tactile haptic utilities', () => {
