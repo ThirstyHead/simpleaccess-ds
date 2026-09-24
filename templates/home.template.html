@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WCAG 2.2 SC 2.4.2 Page Titled: Informative, concise title describing the page context -->
+    <title>SimpleAccess.io - The Accessible Web, Simply Explained</title>
+    
+    <!-- SimpleAccess Design System: WCAG 2.2 AA Multi-Sensory Standards -->
+    <link rel="stylesheet" href="/assets/ds/simpleaccess.css">
+    <script type="module" src="/assets/ds/simpleaccess.js" defer></script>
+</head>
+<body>
+
+    <!-- WCAG 2.2 SC 2.4.1 Bypass Blocks: Keyboard users can skip repetitive navigation directly to main content -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header Component: Renders semantic <header class="l-header"> via Light DOM -->
+    <ds-header 
+        title="SimpleAccess.io" 
+        tagline="The Accessible Web, Simply Explained">
+    </ds-header>
+
+    <!-- Global Navigation Component: Renders semantic <nav class="l-nav" aria-label="Global Sections"> -->
+    <ds-nav></ds-nav>
+
+    <!-- Primary Landmark: WCAG 2.2 SC 1.3.1 Info & Relationships -->
+    <main id="main-content" class="l-main">
+
+        <!-- Hero Organism: High impact introduction -->
+        <section class="m-hero" aria-labelledby="hero-heading">
+            <h2 id="hero-heading" class="m-hero__title">The Web is Sight, Sound, and Touch</h2>
+            <p class="m-hero__tagline">
+                Accessibility isn't just compliance—it is crafting digital experiences that fully delight all human senses through standards-compliant, resilient web engineering.
+            </p>
+            <div class="m-hero__actions">
+                <a href="/guides/wcag/" class="m-btn m-btn--primary">Explore WCAG Guides</a>
+                <a href="/sensory-lab/" class="m-btn m-btn--accent">Enter Sensory Lab</a>
+            </div>
+        </section>
+
+        <!-- Manifesto Molecule: Core Mission Statement -->
+        <blockquote class="m-manifesto">
+            "We believe the web is an inherently accessible medium. When we use standard HTML semantics, scalable CSS, and respect human sensory needs, we build a web that works for everyone."
+        </blockquote>
+
+        <!-- Content Cards Grid: Responsive SMACSS Layout (.l-grid) -->
+        <section aria-labelledby="features-heading">
+            <h2 id="features-heading">Core Learning Tracks</h2>
+            <div class="l-grid">
+
+                <article class="m-card">
+                    <h3 class="m-card__title">WCAG 2.2 Principles</h3>
+                    <div class="m-card__body">
+                        <p>Master the four foundational pillars: Perceivable, Operable, Understandable, and Robust (POUR).</p>
+                    </div>
+                    <a href="/guides/wcag/" class="m-card__link">Read WCAG Principles &rarr;</a>
+                </article>
+
+                <article class="m-card">
+                    <h3 class="m-card__title">Screen Reader Guides</h3>
+                    <div class="m-card__body">
+                        <p>Real-world testing tutorials for Apple VoiceOver, Windows Narrator, NVDA, JAWS, and Android TalkBack.</p>
+                    </div>
+                    <a href="/guides/screenreaders/" class="m-card__link">Learn Screen Readers &rarr;</a>
+                </article>
+
+                <article class="m-card">
+                    <h3 class="m-card__title">HTML Element Reference</h3>
+                    <div class="m-card__body">
+                        <p>A comprehensive catalog of standard HTML5 elements with built-in accessibility analysis and live code demos.</p>
+                    </div>
+                    <a href="/html/" class="m-card__link">Browse 105 Elements &rarr;</a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Test Suite Summary Molecule: Verified WCAG 2.2 AA Compliance -->
+        <section class="m-test-suite" aria-labelledby="test-suite-heading">
+            <h2 id="test-suite-heading">Design System Verification</h2>
+            <p>Every token, component, and layout template is continuously validated against WCAG 2.2 AA automated and manual gates.</p>
+            <table class="m-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Test Dimension</th>
+                        <th scope="col">WCAG Criterion</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Color Contrast</th>
+                        <td>SC 1.4.3 (Min 4.5:1) & SC 1.4.11 (3:1)</td>
+                        <td><span class="m-badge">AAA Passing (12.6:1 - 17.6:1)</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Touch Target Size</th>
+                        <td>SC 2.5.8 Target Size (Minimum 24px)</td>
+                        <td><span class="m-badge">Passing (44px Minimum)</span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Focus Visibility</th>
+                        <td>SC 2.4.7 & SC 2.4.11 Focus Appearance</td>
+                        <td><span class="m-badge">Passing (3px Metallic Ring)</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Global Footer Component: Renders semantic <footer class="l-footer"> via Light DOM -->
+    <ds-footer></ds-footer>
+
+</body>
+</html>

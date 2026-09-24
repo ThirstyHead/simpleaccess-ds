@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WCAG 2.2 SC 2.4.2 Page Titled -->
+    <title>{{GUIDE_TITLE}} | SimpleAccess.io</title>
+    
+    <!-- SimpleAccess Design System: WCAG 2.2 AA Multi-Sensory Standards -->
+    <link rel="stylesheet" href="/assets/ds/simpleaccess.css">
+    <script type="module" src="/assets/ds/simpleaccess.js" defer></script>
+</head>
+<body>
+
+    <!-- WCAG 2.2 SC 2.4.1 Bypass Blocks -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header -->
+    <ds-header 
+        subpage="true"
+        title="SimpleAccess.io" 
+        tagline="Accessibility Knowledge Guides">
+    </ds-header>
+
+    <!-- Global Navigation -->
+    <ds-nav></ds-nav>
+
+    <!-- Primary Landmark: WCAG 2.2 SC 1.3.1 Info & Relationships -->
+    <main id="main-content" class="l-main">
+
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
+            <a href="{{PARENT_GUIDE_URL}}">&larr; Back to {{PARENT_GUIDE_NAME}}</a>
+        </nav>
+
+        <article class="l-container">
+            <header>
+                <span class="m-badge">{{GUIDE_BADGE}}</span>
+                <h1>{{GUIDE_TITLE}}</h1>
+                <p class="is-lead" style="font-size: 1.25rem; color: var(--sys-color-text-muted);">
+                    {{GUIDE_SUBTITLE}}
+                </p>
+            </header>
+
+            <section aria-labelledby="overview-heading">
+                <h2 id="overview-heading">Overview & Requirements</h2>
+                <p>{{GUIDE_BODY_PARAGRAPH_1}}</p>
+                <p>{{GUIDE_BODY_PARAGRAPH_2}}</p>
+            </section>
+
+            <!-- Accessible Reference Table -->
+            <section aria-labelledby="reference-heading">
+                <h2 id="reference-heading">Reference Checklist</h2>
+                <table class="m-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Command / Action</th>
+                            <th scope="col">Keyboard Shortcut</th>
+                            <th scope="col">Expected Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Next Element</th>
+                            <td><kbd>Tab</kbd> or <kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>&rarr;</kbd></td>
+                            <td>Moves screen reader cursor to next interactive landmark</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Activate Control</th>
+                            <td><kbd>Enter</kbd> or <kbd>Space</kbd></td>
+                            <td>Triggers default button or link action with tactile feedback</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section aria-labelledby="implementation-heading">
+                <h2 id="implementation-heading">Standards-Compliant Implementation</h2>
+                <p>Follow standard HTML patterns to guarantee accessibility across all assistive technologies:</p>
+                <pre class="m-code-block"><code>{{CODE_EXAMPLE}}</code></pre>
+            </section>
+        </article>
+
+    </main>
+
+    <!-- Global Footer -->
+    <ds-footer></ds-footer>
+
+</body>
+</html>

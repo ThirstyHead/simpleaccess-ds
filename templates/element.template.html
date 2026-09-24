@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WCAG 2.2 SC 2.4.2 Page Titled -->
+    <title>&lt;{{ELEMENT_NAME}}&gt; HTML Element Reference | SimpleAccess.io</title>
+    
+    <!-- SimpleAccess Design System: WCAG 2.2 AA Multi-Sensory Standards -->
+    <link rel="stylesheet" href="/assets/ds/simpleaccess.css">
+    <script type="module" src="/assets/ds/simpleaccess.js" defer></script>
+</head>
+<body>
+
+    <!-- WCAG 2.2 SC 2.4.1 Bypass Blocks -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header: subpage="true" renders h1 inside main for proper landmark heading hierarchy -->
+    <ds-header 
+        subpage="true"
+        title="SimpleAccess.io" 
+        tagline="HTML5 Accessibility Reference">
+    </ds-header>
+
+    <!-- Global Navigation Component -->
+    <ds-nav></ds-nav>
+
+    <!-- Primary Landmark: WCAG 2.2 SC 1.3.1 Info & Relationships -->
+    <main id="main-content" class="l-main">
+
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
+            <a href="/html/">&larr; Back to HTML Elements Directory</a>
+        </nav>
+
+        <article class="l-container">
+            <!-- Page Primary Heading -->
+            <h1>The <code>&lt;{{ELEMENT_NAME}}&gt;</code> Element</h1>
+            <p class="is-lead">
+                {{ELEMENT_DESCRIPTION}}
+            </p>
+
+            <!-- Accessibility & Screen Reader Notes -->
+            <section aria-labelledby="a11y-notes-heading">
+                <h2 id="a11y-notes-heading">Accessibility Characteristics</h2>
+                <ul>
+                    <li><strong>Implicit ARIA Role:</strong> <code>{{ARIA_ROLE}}</code></li>
+                    <li><strong>Keyboard Focusable:</strong> {{FOCUSABLE_STATUS}}</li>
+                    <li><strong>Screen Reader Announcement:</strong> {{ANNOUNCEMENT_BEHAVIOR}}</li>
+                </ul>
+            </section>
+
+            <!-- Live Interactive Demonstration Box -->
+            <section aria-labelledby="demo-heading">
+                <h2 id="demo-heading">Live Demonstration</h2>
+                <div class="m-demo">
+                    {{ELEMENT_LIVE_DEMO}}
+                </div>
+            </section>
+
+            <!-- Standards Compliant Code Syntax -->
+            <section aria-labelledby="code-heading">
+                <h2 id="code-heading">Source Code Example</h2>
+                <pre class="m-code-block"><code>{{CODE_EXAMPLE}}</code></pre>
+            </section>
+
+            <!-- W3C / WHATWG Official Specification Link -->
+            <section aria-labelledby="spec-heading" style="margin-top: 2rem;">
+                <h2 id="spec-heading">Standard Specification</h2>
+                <p>
+                    Read the official normative definition in the WHATWG HTML Living Standard:
+                </p>
+                <a href="{{SPEC_URL}}" class="m-ref-link" target="_blank" rel="noopener noreferrer">
+                    WHATWG HTML Living Standard: The &lt;{{ELEMENT_NAME}}&gt; element (opens in new tab)
+                </a>
+            </section>
+        </article>
+
+    </main>
+
+    <!-- Global Footer Component -->
+    <ds-footer></ds-footer>
+
+</body>
+</html>

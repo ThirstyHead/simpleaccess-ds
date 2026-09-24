@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- WCAG 2.2 SC 2.4.2 Page Titled -->
+    <title>{{LAB_TITLE}} | SimpleAccess.io Sensory Lab</title>
+    
+    <!-- SimpleAccess Design System: WCAG 2.2 AA Multi-Sensory Standards -->
+    <link rel="stylesheet" href="/assets/ds/simpleaccess.css">
+    <script type="module" src="/assets/ds/simpleaccess.js" defer></script>
+</head>
+<body>
+
+    <!-- WCAG 2.2 SC 2.4.1 Bypass Blocks -->
+    <a href="#main-content" class="m-skip-link">Skip to main content</a>
+
+    <!-- Global Header -->
+    <ds-header 
+        subpage="true"
+        title="SimpleAccess.io" 
+        tagline="Sensory Lab: Sight, Sound, and Touch">
+    </ds-header>
+
+    <!-- Global Navigation -->
+    <ds-nav></ds-nav>
+
+    <!-- Primary Landmark -->
+    <main id="main-content" class="l-main">
+
+        <nav aria-label="Breadcrumb" style="margin-bottom: 1rem;">
+            <a href="/sensory-lab/">&larr; Back to Sensory Lab Hub</a>
+        </nav>
+
+        <header>
+            <span class="m-badge">Sensory Lab Experiment</span>
+            <h1>{{LAB_TITLE}}</h1>
+            <p class="is-lead" style="font-size: 1.25rem;">
+                {{LAB_OBJECTIVE}}
+            </p>
+        </header>
+
+        <!-- Side-by-Side Comparison Container -->
+        <div class="l-grid">
+
+            <!-- Accessible Sensory Implementation -->
+            <section class="m-card" style="border-top-color: #059669;" aria-labelledby="accessible-version-heading">
+                <h2 id="accessible-version-heading" style="color: #059669;">Accessible Sensory Design</h2>
+                <div class="m-card__body">
+                    <p>{{ACCESSIBLE_EXPLANATION}}</p>
+                    <div class="m-demo" style="border-color: #a7f3d0; background-color: #f0fdf4;">
+                        {{ACCESSIBLE_DEMO_MARKUP}}
+                    </div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="{{ACCESSIBLE_SUBPAGE_URL}}" class="m-btn m-btn--primary">Open Accessible Lab</a>
+                </div>
+            </section>
+
+            <!-- Inaccessible Barrier Example -->
+            <section class="m-card" style="border-top-color: #dc2626;" aria-labelledby="inaccessible-version-heading">
+                <h2 id="inaccessible-version-heading" style="color: #dc2626;">Inaccessible Barrier (Do Not Use)</h2>
+                <div class="m-card__body">
+                    <p>{{INACCESSIBLE_EXPLANATION}}</p>
+                    <div class="m-demo" style="border-color: #fecaca; background-color: #fef2f2;">
+                        {{INACCESSIBLE_DEMO_MARKUP}}
+                    </div>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <a href="{{INACCESSIBLE_SUBPAGE_URL}}" class="m-btn m-btn--accent">Inspect Barrier Demo</a>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Sensory Interaction Test Zone -->
+        <section class="m-test-suite" aria-labelledby="sensory-testing-heading">
+            <h2 id="sensory-testing-heading">Sensory Feedback Verification</h2>
+            <p>Test the multi-sensory feedback engine directly in your browser:</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+                <button type="button" class="m-btn m-btn--primary" id="test-audio-btn">
+                    <span>&#9835; Test Acoustic Earcon (Sound)</span>
+                </button>
+                <button type="button" class="m-btn m-btn--accent" id="test-haptic-btn">
+                    <span>&#128243; Test Tactile Pulse (Touch)</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Footer -->
+    <ds-footer></ds-footer>
+
+    <script type="module">
+        import { playEarcon, triggerHaptic } from '/assets/ds/simpleaccess.js';
+        
+        document.getElementById('test-audio-btn')?.addEventListener('click', () => {
+            playEarcon(440, 0.08);
+        });
+
+        document.getElementById('test-haptic-btn')?.addEventListener('click', () => {
+            triggerHaptic(15);
+        });
+    </script>
+</body>
+</html>
