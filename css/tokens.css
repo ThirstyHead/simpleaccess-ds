@@ -1,0 +1,86 @@
+/* ==========================================================================
+   DESIGN TOKENS (Generated from tokens.json - W3C DTCG 2025.10)
+   WCAG 2.2 AA Multi-Sensory Standards (Sight, Sound, Touch)
+   ========================================================================== */
+:root {
+  /* --- Backward-Compatible Variables (SimpleAccess Baseline 1.0.0) --- */
+  --color-primary: #002d62;
+  --color-accent: #ffd700;
+  --color-focus: #d4af37;
+  --color-text: #1a1a1a;
+  --color-bg: #f4f4f4;
+  --color-white: #ffffff;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace;
+  --line-height: 1.7;
+
+  /* --- Semantic Color System --- */
+  --sys-color-bg-canvas: #f4f4f4;
+  --sys-color-bg-surface: #ffffff;
+  --sys-color-bg-container: #e8f0fe;
+  --sys-color-text-main: #1a1a1a;
+  --sys-color-text-muted: #444444;
+  --sys-color-text-inverse: #ffffff;
+  --sys-color-text-accent: #002d62;
+  --sys-color-interactive-primary: #002d62;
+  --sys-color-interactive-hover: #004494;
+  --sys-color-interactive-focus: #d4af37;
+  --sys-color-interactive-accent: #ffd700;
+
+  /* --- Typography Scale & Weights --- */
+  --sys-font-scale-xs: 0.75rem;
+  --sys-font-scale-sm: 0.875rem;
+  --sys-font-scale-base: 1rem;
+  --sys-font-scale-md: 1.1rem;
+  --sys-font-scale-lg: 1.4rem;
+  --sys-font-scale-xl: 1.75rem;
+  --sys-font-scale-xxl: 2.25rem;
+  --sys-font-scale-display: 3rem;
+  --sys-font-weight-regular: 400;
+  --sys-font-weight-medium: 500;
+  --sys-font-weight-semibold: 600;
+  --sys-font-weight-bold: 700;
+  --sys-line-height-tight: 1.2;
+  --sys-line-height-body: 1.7;
+
+  /* --- Spacing Scale --- */
+  --sys-space-xs: 0.25rem;
+  --sys-space-sm: 0.5rem;
+  --sys-space-md: 1rem;
+  --sys-space-lg: 1.5rem;
+  --sys-space-xl: 2rem;
+  --sys-space-xxl: 3rem;
+  --sys-space-huge: 4rem;
+  --sys-space-hero: 5rem;
+
+  /* --- Layout & Boundaries --- */
+  --sys-layout-container-max: 900px;
+  --sys-layout-main-max: 1100px;
+  --sys-layout-grid-min-card: 300px;
+  --sys-border-radius-sm: 4px;
+  --sys-border-radius-md: 8px;
+  --sys-border-radius-lg: 12px;
+  --sys-border-header-accent: 6px;
+  --sys-border-card-lead: 8px;
+  --sys-elevation-nav: 0 2px 5px rgba(0,0,0,0.1);
+  --sys-elevation-card: 0 4px 12px rgba(0,0,0,0.05);
+  --sys-elevation-hero: 0 15px 35px rgba(0,0,0,0.1);
+
+  /* --- Multi-Sensory: Touch & Motion --- */
+  --sys-touch-min-target: 44px;
+  --sys-motion-fast: 0.2s ease;
+}
+
+/* --- Sensory Lab Dark Mode Tokens --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sys-color-bg-canvas: #0a192f;
+    --sys-color-bg-surface: #132238;
+    --sys-color-bg-container: #1b2e4b;
+    --sys-color-text-main: #f0f4f8;
+    --sys-color-text-muted: #cbd5e1;
+    --color-bg: #0a192f;
+    --color-text: #f0f4f8;
+    --color-white: #132238;
+  }
+}

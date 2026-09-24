@@ -1,0 +1,36 @@
+{
+  "name": "@simpleaccess/ds",
+  "version": "1.0.0",
+  "description": "SimpleAccess Design System: WCAG 2.2 AA multi-sensory (sight, sound, touch) design system based on SMACSS, Atomic Design, and W3C DTCG 2025.10 tokens.",
+  "type": "module",
+  "main": "dist/simpleaccess.js",
+  "style": "dist/simpleaccess.css",
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "wcag",
+    "wcag22",
+    "design-system",
+    "design-tokens",
+    "dtcg",
+    "smacss",
+    "atomic-design",
+    "multi-sensory",
+    "web-components"
+  ],
+  "author": "Scott Davis <scott@thirstyhead.com> (https://thirstyhead.com/)",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThirstyHead/simpleaccess-ds.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ThirstyHead/simpleaccess-ds/issues"
+  },
+  "homepage": "https://simpleaccess.io/"
+}
